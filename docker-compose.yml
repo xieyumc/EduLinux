@@ -1,0 +1,60 @@
+version: '3'
+services:
+  nginx:
+    image: nginx:latest
+    container_name: nginx
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+    depends_on:
+      - student1
+      - student2
+      - student3
+    networks:
+      - webnet
+
+  student1:
+    image: student-linux-env
+    container_name: student1
+    networks:
+      - webnet
+    volumes:
+      - ./volume/share:/home/student/share:ro
+      - ./volume/student/1:/home/student/1
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: 128M
+
+  student2:
+    image: student-linux-env
+    container_name: student2
+    networks:
+      - webnet
+    volumes:
+      - ./volume/share:/home/student/share:ro
+      - ./volume/student/2:/home/student/2
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: 128M
+
+  student3:
+    image: student-linux-env
+    container_name: student3
+    networks:
+      - webnet
+    volumes:
+      - ./volume/share:/home/student/share:ro
+      - ./volume/student/3:/home/student/3
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: 128M
+
+networks:
+  webnet:
