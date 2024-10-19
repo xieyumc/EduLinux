@@ -99,3 +99,11 @@ RUN useradd -m -u 1000 -s /bin/bash student && \
 默认容器的CPU和内存限制是10%和128M内存
 
 修改`docker-compose.yml`，修改`deploy`部分的`resources`字段，可以修改CPU和内存的限制
+
+### 快速批量增加学生
+使用python脚本，请在python脚本里修改学生的用户，然后运行：
+```bash
+python generate_docker_compose.py
+python generate_nginx_conf.py
+python generate_directories.py
+```
