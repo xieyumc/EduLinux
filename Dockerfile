@@ -19,7 +19,19 @@ RUN apt-get update && apt-get install -y \
     make \
     gcc \
     libjson-c-dev \
-    libwebsockets-dev
+    libwebsockets-dev \
+    locales \
+    fonts-wqy-zenhei \
+    fonts-wqy-microhei
+
+# 生成并设置UTF-8和中文支持的locale
+RUN locale-gen en_US.UTF-8 zh_CN.UTF-8 && \
+    update-locale LANG=zh_CN.UTF-8
+
+# 设置环境变量以支持中文显示
+ENV LANG zh_CN.UTF-8
+ENV LANGUAGE zh_CN:zh
+ENV LC_ALL zh_CN.UTF-8
 
 # 创建学生用户并设置密码，指定UID和主目录，并复制初始配置文件
 RUN useradd -m -u 1000 -s /bin/bash student && \
@@ -30,7 +42,6 @@ RUN useradd -m -u 1000 -s /bin/bash student && \
 
 # 设置环境变量
 ENV HOME=/home/student
-ENV LANG en_US.utf8
 
 # 设置工作目录
 WORKDIR /home/student
@@ -47,5 +58,5 @@ USER student
 # 暴露ttyd使用的端口
 EXPOSE 7681
 
-# 设置容器启动时运行的命令，移除 -u 参数
+# 设置容器启动时运行的命令
 CMD ["ttyd", "--writable", "-p", "7681", "bash"]
