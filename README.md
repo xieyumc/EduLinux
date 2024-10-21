@@ -1,16 +1,28 @@
 # EduLinux
 为学生提供基于 Docker 容器的虚拟 Linux 实验环境
-
+![img.png](img/img2.png)
 ## 部署
-1. 安装 Docker以及 Docker Compose
-2. 克隆本项目
+### 部署docker容器
+1. 安装 Docker以及 Docker Compose（需要使用V2版本）
+2. 克隆本项目，切换工作目录`Docker_config`
 3. 使用dockerfile 编译镜像`student-linux-env`
 ```bash
 docker build -t student-linux-env .
 ```
 4. 使用docker-compose 启动容器
 ```bash
-docker-compose up
+docker compose up
+```
+
+### 部署管理界面
+1. 切换到目录`Docker_manage`
+2. pip安装依赖
+```bash
+pip install -r requirements.txt
+```
+3. 运行管理界面
+```bash
+python manage.py runserver localhost:8000 
 ```
 
 ## 学生使用
@@ -22,6 +34,10 @@ docker-compose up
 `./volume/share` 是共享文件夹，映射到容器的`/home/student/share`，这个目录可以作为发布实验文件用，所有容器都可以访问，并且学生在容器内是只读的
 
 `./volume/student/1` 是学生1的文件夹，映射到容器的`/home/student/1`，这个目录是学生1的私人文件夹，其他学生无法访问，学生可以在这个目录下进行实验
+
+## 管理容器
+访问`http://localhost/student1/manage` ，即可管理学生1的容器，可以查看容器的状态，重启容器，重置容器等
+![img.png](img/img.png)
 
 ## 更多配置
 

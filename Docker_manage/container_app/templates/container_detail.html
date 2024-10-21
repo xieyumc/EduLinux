@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>容器详情</title>
+    <style>
+        /* 全局样式 */
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background-color: #f0f2f5;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh; /* 修改为固定高度 */
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 20px; /* 减少内边距 */
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            width: 90%;
+            max-width: 800px;
+            box-sizing: border-box;
+        }
+
+        h1 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 15px; /* 减少下边距 */
+            font-size: 24px; /* 减小字体大小 */
+        }
+
+        .details {
+            display: grid;
+            grid-template-columns: 1fr 1fr; /* 两列布局 */
+            gap: 10px; /* 减少间距 */
+        }
+
+        .details p {
+            margin: 5px 0;
+            font-size: 14px; /* 减小字体大小 */
+            color: #555;
+        }
+
+        .details p strong {
+            color: #333;
+        }
+
+        h2 {
+            color: #333;
+            font-size: 18px; /* 减小字体大小 */
+            margin-top: 20px; /* 减少上边距 */
+            margin-bottom: 10px; /* 添加下边距 */
+            border-bottom: 1px solid #e0e0e0;
+            padding-bottom: 5px; /* 减少内边距 */
+        }
+
+        pre {
+            background-color: #f8f9fa;
+            padding: 10px; /* 减少内边距 */
+            border-radius: 6px;
+            overflow-y: auto; /* 添加垂直滚动 */
+            font-size: 12px; /* 减小字体大小 */
+            max-height: 100px; /* 限制最大高度 */
+            border: 1px solid #e0e0e0;
+        }
+
+        /* 按钮区域 */
+        .button-group {
+            display: flex;
+            justify-content: center;
+            gap: 10px; /* 减少间距 */
+            margin-top: 15px; /* 减少上边距 */
+        }
+
+        button {
+            padding: 8px 12px; /* 减少内边距 */
+            font-size: 14px; /* 减小字体大小 */
+            border-radius: 6px;
+            cursor: pointer;
+            border: none;
+            transition: all 0.3s ease;
+            flex: 1;
+            max-width: 150px; /* 减小最大宽度 */
+        }
+
+        .restart-btn {
+            background-color: #28a745;
+            color: white;
+        }
+
+        .restart-btn:hover {
+            background-color: #218838;
+            transform: translateY(-2px);
+        }
+
+        .reset-btn {
+            background-color: #dc3545;
+            color: white;
+        }
+
+        .reset-btn:hover {
+            background-color: #c82333;
+            transform: translateY(-2px);
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 600px) {
+            .details {
+                grid-template-columns: 1fr; /* 移动端单列布局 */
+            }
+
+            .container {
+                padding: 15px; /* 再次减少内边距 */
+            }
+
+            h1 {
+                font-size: 20px;
+            }
+
+            h2 {
+                font-size: 16px;
+            }
+
+            .details p {
+                font-size: 12px;
+            }
+
+            pre {
+                font-size: 10px;
+                max-height: 80px;
+            }
+
+            button {
+                font-size: 12px;
+                padding: 6px 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>容器详情：{{ container.name }}</h1>
+        <div class="details">
+            <p><strong>ID：</strong>{{ container.id }}</p>
+            <p><strong>状态：</strong>{{ container.status }}</p>
+            <p><strong>镜像：</strong>{{ container.image }}</p>
+            <p><strong>CPU使用率：</strong>{{ container.cpu_percent }}%</p>
+            <p><strong>内存使用：</strong>{{ container.memory_usage }}MB</p>
+        </div>
+
+        <h2>日志</h2>
+        <pre>{{ container.logs }}</pre>
+
+        <!-- 按钮组 -->
+        <div class="button-group">
+            <!-- 修改按钮，添加 onclick 事件 -->
+            <form method="POST" action="{% url 'restart_container' container.name %}" id="restart-form">
+                {% csrf_token %}
+                <button type="button" class="restart-btn" onclick="confirmRestart()">重启容器</button>
+            </form>
+
+            <form method="POST" action="{% url 'reset_container' container.name %}" id="reset-form">
+                {% csrf_token %}
+                <button type="button" class="reset-btn" onclick="confirmReset()">重置容器</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- 添加JavaScript -->
+    <script>
+        function confirmRestart() {
+            if (confirm("重启容器会停止一切正在运行的程序。确定要继续吗？")) {
+                document.getElementById('restart-form').submit();
+            }
+        }
+
+        function confirmReset() {
+            if (confirm("重置容器会摧毁目前的容器，再重新创建，这会丢失除了私人目录以外的所有文件。确定要继续吗？")) {
+                document.getElementById('reset-form').submit();
+            }
+        }
+    </script>
+</body>
+</html>

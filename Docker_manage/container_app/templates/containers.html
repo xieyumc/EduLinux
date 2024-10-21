@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Docker Containers</title>
+</head>
+<body>
+    <h1>Docker Containers</h1>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Container ID</th>
+                <th>Name</th>
+                <th>Status</th>
+                <th>CPU Usage</th>
+                <th>Memory Usage (MB)</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for container in containers %}
+            <tr>
+                <td>{{ container.id }}</td>
+                <td>
+                    <a href="{% url 'container_detail' container.name %}">{{ container.name }}</a>
+                </td>
+                <td>{{ container.status }}</td>
+                <td>{{ container.cpu_percent }}</td>
+                <td>{{ container.memory_usage }}</td>
+                <td>
+                    <a href="{% url 'restart_container' container.id %}">Restart</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
