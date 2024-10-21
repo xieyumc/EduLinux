@@ -39,20 +39,27 @@ def container_detail(request, container_name):
         container = client.containers.get(container_name)
         stats = container.stats(stream=False)  # 获取容器资源使用情况
 
-        # 计算 CPU 使用率（按百分比）
-        cpu_delta = (
-            stats["cpu_stats"]["cpu_usage"]["total_usage"] -
-            stats["precpu_stats"]["cpu_usage"]["total_usage"]
-        )
-        system_delta = (
-            stats["cpu_stats"]["system_cpu_usage"] -
-            stats["precpu_stats"]["system_cpu_usage"]
-        )
-        num_cores = len(stats["cpu_stats"]["cpu_usage"].get("percpu_usage", []))
+        # 获取当前和上次的 CPU 使用数据
+        cpu_stats = stats.get('cpu_stats', {})
+        precpu_stats = stats.get('precpu_stats', {})
 
+        # 获取累计 CPU 使用时间
+        current_total_usage = cpu_stats.get('cpu_usage', {}).get('total_usage', 0)
+        previous_total_usage = precpu_stats.get('cpu_usage', {}).get('total_usage', 0)
+
+        # 获取系统 CPU 使用时间
+        current_system_usage = cpu_stats.get('system_cpu_usage', 0)
+        previous_system_usage = precpu_stats.get('system_cpu_usage', 0)
+
+        # 获取 CPU 核心数
+        cpu_count = len(cpu_stats.get('cpu_usage', {}).get('percpu_usage', []))
+
+        # 计算 CPU 使用率
+        cpu_delta = current_total_usage - previous_total_usage
+        system_delta = current_system_usage - previous_system_usage
         cpu_percent = 0.0
-        if system_delta > 0 and num_cores > 0:
-            cpu_percent = (cpu_delta / system_delta) * num_cores * 100
+        if system_delta > 0 and cpu_count > 0:
+            cpu_percent = (cpu_delta / system_delta) * cpu_count * 100
 
         # 获取内存使用情况
         memory_usage = stats.get('memory_stats', {}).get('usage', 0) / (1024 * 1024)  # 转为MB
@@ -64,8 +71,8 @@ def container_detail(request, container_name):
             'status': container.status,
             'image': container.image.tags,
             'cpu_percent': round(cpu_percent, 2),  # 四舍五入到2位小数
-            'memory_usage': memory_usage,
-            'logs': container.logs(tail=10).decode('utf-8'),  # 获取最近10行日志
+            'memory_usage': round(memory_usage, 2),
+            'logs': container.logs().decode('utf-8'),  # 获取最近10行日志
         }
 
         return render(request, 'container_detail.html', {'container': container_data})

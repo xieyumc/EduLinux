@@ -144,9 +144,9 @@
 </head>
 <body>
     <div class="container">
-        <h1>容器详情：{{ container.name }}</h1>
+        <h1>容器详情</h1>
         <div class="details">
-            <p><strong>ID：</strong>{{ container.id }}</p>
+            <p><strong>ID：</strong>{{ container.name }}({{ container.id }})</p>
             <p><strong>状态：</strong>{{ container.status }}</p>
             <p><strong>镜像：</strong>{{ container.image }}</p>
             <p><strong>CPU使用率：</strong>{{ container.cpu_percent }}%</p>
@@ -180,7 +180,7 @@
         }
 
         function confirmReset() {
-            if (confirm("重置容器会摧毁目前的容器，再重新创建，这会丢失除了私人目录以外的所有文件。确定要继续吗？")) {
+            if (confirm("重置容器会摧毁目前的容器再重新创建，这会丢失除了私人目录以外的所有文件。确定要继续吗？")) {
                 document.getElementById('reset-form').submit();
             }
         }

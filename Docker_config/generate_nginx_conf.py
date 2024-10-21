@@ -1,5 +1,3 @@
-# generate_nginx_conf.py
-
 with open("nginx.conf", "w") as f:
     # 写入 Nginx 配置头部
     f.write("""user  nginx;
@@ -16,17 +14,10 @@ http {
     include       /etc/nginx/mime.types;
     default_type  application/octet-stream;
 
-    # 使用Docker内部DNS解析
-    resolver 127.0.0.11 ipv6=off;
-
     sendfile        on;
     keepalive_timeout  65;
 
 """)
-
-    # 自动生成 upstream 配置
-    for i in range(1, 53):
-        f.write(f"    upstream student{i} {{\n        server student{i}:7681;\n    }}\n\n")
 
     # 写入 server 配置头部
     f.write("""    server {
@@ -36,11 +27,11 @@ http {
 
     # 自动生成 location 配置
     for i in range(1, 53):
-        # 为 manage 路径生成配置
+        # 为 manage 路径生成配置，转发到 localhost:8000
         f.write(f"""
         # student{i} manage
         location /student{i}/manage {{
-            proxy_pass http://host.docker.internal:8000/student{i}/manage;
+            proxy_pass http://localhost:8000/student{i}/manage;
             proxy_http_version 1.1;
             proxy_set_header Upgrade $http_upgrade;
             proxy_set_header Connection "upgrade";
@@ -49,11 +40,11 @@ http {
             proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
         }}
 """)
-        # 为 student 常规路径生成配置
+        # 为 student 常规路径生成配置，转发到对应的端口
         f.write(f"""
         # student{i}
         location /student{i}/ {{
-            proxy_pass http://student{i}/;
+            proxy_pass http://localhost:{30000 + i}/;
             proxy_http_version 1.1;
             proxy_set_header Upgrade $http_upgrade;
             proxy_set_header Connection "upgrade";

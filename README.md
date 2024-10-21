@@ -16,13 +16,14 @@ docker compose up
 
 ### 部署管理界面
 1. 切换到目录`Docker_manage`
-2. pip安装依赖
+2. 修改一下settings.py文件，修改`CSRF_TRUSTED_ORIGINS = [""]`字段，增加你的服务器IP地址或者域名
+3. pip安装依赖
 ```bash
 pip install -r requirements.txt
 ```
-3. 运行管理界面
+4.运行管理界面
 ```bash
-python manage.py runserver localhost:8000 
+nohup python manage.py runserver 0.0.0.0:8000 &
 ```
 
 ## 学生使用

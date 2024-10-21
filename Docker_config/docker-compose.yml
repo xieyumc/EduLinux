@@ -7,6 +7,7 @@ services:
       - "80:80"
     volumes:
       - ./nginx.conf:/etc/nginx/nginx.conf:ro
+    network_mode: host
     depends_on:
       - student1
       - student2
@@ -60,14 +61,12 @@ services:
       - student50
       - student51
       - student52
-    networks:
-      - webnet
 
   student1:
     image: student-linux-env
     container_name: student1
-    networks:
-      - webnet
+    ports:
+      - "30001:7681"
     volumes:
       - ./volume/share:/home/student/share:ro
       - ./volume/student/1:/home/student/1
@@ -80,8 +79,8 @@ services:
   student2:
     image: student-linux-env
     container_name: student2
-    networks:
-      - webnet
+    ports:
+      - "30002:7681"
     volumes:
       - ./volume/share:/home/student/share:ro
       - ./volume/student/2:/home/student/2
@@ -94,8 +93,8 @@ services:
   student3:
     image: student-linux-env
     container_name: student3
-    networks:
-      - webnet
+    ports:
+      - "30003:7681"
     volumes:
       - ./volume/share:/home/student/share:ro
       - ./volume/student/3:/home/student/3
@@ -108,8 +107,8 @@ services:
   student4:
     image: student-linux-env
     container_name: student4
-    networks:
-      - webnet
+    ports:
+      - "30004:7681"
     volumes:
       - ./volume/share:/home/student/share:ro
       - ./volume/student/4:/home/student/4
@@ -122,8 +121,8 @@ services:
   student5:
     image: student-linux-env
     container_name: student5
-    networks:
-      - webnet
+    ports:
+      - "30005:7681"
     volumes:
       - ./volume/share:/home/student/share:ro
       - ./volume/student/5:/home/student/5
@@ -136,8 +135,8 @@ services:
   student6:
     image: student-linux-env
     container_name: student6
-    networks:
-      - webnet
+    ports:
+      - "30006:7681"
     volumes:
       - ./volume/share:/home/student/share:ro
       - ./volume/student/6:/home/student/6
@@ -150,8 +149,8 @@ services:
   student7:
     image: student-linux-env
     container_name: student7
-    networks:
-      - webnet
+    ports:
+      - "30007:7681"
     volumes:
       - ./volume/share:/home/student/share:ro
       - ./volume/student/7:/home/student/7
@@ -164,8 +163,8 @@ services:
   student8:
     image: student-linux-env
     container_name: student8
-    networks:
-      - webnet
+    ports:
+      - "30008:7681"
     volumes:
       - ./volume/share:/home/student/share:ro
       - ./volume/student/8:/home/student/8
@@ -178,8 +177,8 @@ services:
   student9:
     image: student-linux-env
     container_name: student9
-    networks:
-      - webnet
+    ports:
+      - "30009:7681"
     volumes:
       - ./volume/share:/home/student/share:ro
       - ./volume/student/9:/home/student/9
@@ -192,8 +191,8 @@ services:
   student10:
     image: student-linux-env
     container_name: student10
-    networks:
-      - webnet
+    ports:
+      - "30010:7681"
     volumes:
       - ./volume/share:/home/student/share:ro
       - ./volume/student/10:/home/student/10
@@ -206,8 +205,8 @@ services:
   student11:
     image: student-linux-env
     container_name: student11
-    networks:
-      - webnet
+    ports:
+      - "30011:7681"
     volumes:
       - ./volume/share:/home/student/share:ro
       - ./volume/student/11:/home/student/11
@@ -220,8 +219,8 @@ services:
   student12:
     image: student-linux-env
     container_name: student12
-    networks:
-      - webnet
+    ports:
+      - "30012:7681"
     volumes:
       - ./volume/share:/home/student/share:ro
       - ./volume/student/12:/home/student/12
@@ -234,8 +233,8 @@ services:
   student13:
     image: student-linux-env
     container_name: student13
-    networks:
-      - webnet
+    ports:
+      - "30013:7681"
     volumes:
       - ./volume/share:/home/student/share:ro
       - ./volume/student/13:/home/student/13
@@ -248,8 +247,8 @@ services:
   student14:
     image: student-linux-env
     container_name: student14
-    networks:
-      - webnet
+    ports:
+      - "30014:7681"
     volumes:
       - ./volume/share:/home/student/share:ro
       - ./volume/student/14:/home/student/14
@@ -262,8 +261,8 @@ services:
   student15:
     image: student-linux-env
     container_name: student15
-    networks:
-      - webnet
+    ports:
+      - "30015:7681"
     volumes:
       - ./volume/share:/home/student/share:ro
       - ./volume/student/15:/home/student/15
@@ -276,8 +275,8 @@ services:
   student16:
     image: student-linux-env
     container_name: student16
-    networks:
-      - webnet
+    ports:
+      - "30016:7681"
     volumes:
       - ./volume/share:/home/student/share:ro
       - ./volume/student/16:/home/student/16
@@ -290,8 +289,8 @@ services:
   student17:
     image: student-linux-env
     container_name: student17
-    networks:
-      - webnet
+    ports:
+      - "30017:7681"
     volumes:
       - ./volume/share:/home/student/share:ro
       - ./volume/student/17:/home/student/17
@@ -304,8 +303,8 @@ services:
   student18:
     image: student-linux-env
     container_name: student18
-    networks:
-      - webnet
+    ports:
+      - "30018:7681"
     volumes:
       - ./volume/share:/home/student/share:ro
       - ./volume/student/18:/home/student/18
@@ -318,8 +317,8 @@ services:
   student19:
     image: student-linux-env
     container_name: student19
-    networks:
-      - webnet
+    ports:
+      - "30019:7681"
     volumes:
       - ./volume/share:/home/student/share:ro
       - ./volume/student/19:/home/student/19
@@ -332,8 +331,8 @@ services:
   student20:
     image: student-linux-env
     container_name: student20
-    networks:
-      - webnet
+    ports:
+      - "30020:7681"
     volumes:
       - ./volume/share:/home/student/share:ro
       - ./volume/student/20:/home/student/20
@@ -346,8 +345,8 @@ services:
   student21:
     image: student-linux-env
     container_name: student21
-    networks:
-      - webnet
+    ports:
+      - "30021:7681"
     volumes:
       - ./volume/share:/home/student/share:ro
       - ./volume/student/21:/home/student/21
@@ -360,8 +359,8 @@ services:
   student22:
     image: student-linux-env
     container_name: student22
-    networks:
-      - webnet
+    ports:
+      - "30022:7681"
     volumes:
       - ./volume/share:/home/student/share:ro
       - ./volume/student/22:/home/student/22
@@ -374,8 +373,8 @@ services:
   student23:
     image: student-linux-env
     container_name: student23
-    networks:
-      - webnet
+    ports:
+      - "30023:7681"
     volumes:
       - ./volume/share:/home/student/share:ro
       - ./volume/student/23:/home/student/23
@@ -388,8 +387,8 @@ services:
   student24:
     image: student-linux-env
     container_name: student24
-    networks:
-      - webnet
+    ports:
+      - "30024:7681"
     volumes:
       - ./volume/share:/home/student/share:ro
       - ./volume/student/24:/home/student/24
@@ -402,8 +401,8 @@ services:
   student25:
     image: student-linux-env
     container_name: student25
-    networks:
-      - webnet
+    ports:
+      - "30025:7681"
     volumes:
       - ./volume/share:/home/student/share:ro
       - ./volume/student/25:/home/student/25
@@ -416,8 +415,8 @@ services:
   student26:
     image: student-linux-env
     container_name: student26
-    networks:
-      - webnet
+    ports:
+      - "30026:7681"
     volumes:
       - ./volume/share:/home/student/share:ro
       - ./volume/student/26:/home/student/26
@@ -430,8 +429,8 @@ services:
   student27:
     image: student-linux-env
     container_name: student27
-    networks:
-      - webnet
+    ports:
+      - "30027:7681"
     volumes:
       - ./volume/share:/home/student/share:ro
       - ./volume/student/27:/home/student/27
@@ -444,8 +443,8 @@ services:
   student28:
     image: student-linux-env
     container_name: student28
-    networks:
-      - webnet
+    ports:
+      - "30028:7681"
     volumes:
       - ./volume/share:/home/student/share:ro
       - ./volume/student/28:/home/student/28
@@ -458,8 +457,8 @@ services:
   student29:
     image: student-linux-env
     container_name: student29
-    networks:
-      - webnet
+    ports:
+      - "30029:7681"
     volumes:
       - ./volume/share:/home/student/share:ro
       - ./volume/student/29:/home/student/29
@@ -472,8 +471,8 @@ services:
   student30:
     image: student-linux-env
     container_name: student30
-    networks:
-      - webnet
+    ports:
+      - "30030:7681"
     volumes:
       - ./volume/share:/home/student/share:ro
       - ./volume/student/30:/home/student/30
@@ -486,8 +485,8 @@ services:
   student31:
     image: student-linux-env
     container_name: student31
-    networks:
-      - webnet
+    ports:
+      - "30031:7681"
     volumes:
       - ./volume/share:/home/student/share:ro
       - ./volume/student/31:/home/student/31
@@ -500,8 +499,8 @@ services:
   student32:
     image: student-linux-env
     container_name: student32
-    networks:
-      - webnet
+    ports:
+      - "30032:7681"
     volumes:
       - ./volume/share:/home/student/share:ro
       - ./volume/student/32:/home/student/32
@@ -514,8 +513,8 @@ services:
   student33:
     image: student-linux-env
     container_name: student33
-    networks:
-      - webnet
+    ports:
+      - "30033:7681"
     volumes:
       - ./volume/share:/home/student/share:ro
       - ./volume/student/33:/home/student/33
@@ -528,8 +527,8 @@ services:
   student34:
     image: student-linux-env
     container_name: student34
-    networks:
-      - webnet
+    ports:
+      - "30034:7681"
     volumes:
       - ./volume/share:/home/student/share:ro
       - ./volume/student/34:/home/student/34
@@ -542,8 +541,8 @@ services:
   student35:
     image: student-linux-env
     container_name: student35
-    networks:
-      - webnet
+    ports:
+      - "30035:7681"
     volumes:
       - ./volume/share:/home/student/share:ro
       - ./volume/student/35:/home/student/35
@@ -556,8 +555,8 @@ services:
   student36:
     image: student-linux-env
     container_name: student36
-    networks:
-      - webnet
+    ports:
+      - "30036:7681"
     volumes:
       - ./volume/share:/home/student/share:ro
       - ./volume/student/36:/home/student/36
@@ -570,8 +569,8 @@ services:
   student37:
     image: student-linux-env
     container_name: student37
-    networks:
-      - webnet
+    ports:
+      - "30037:7681"
     volumes:
       - ./volume/share:/home/student/share:ro
       - ./volume/student/37:/home/student/37
@@ -584,8 +583,8 @@ services:
   student38:
     image: student-linux-env
     container_name: student38
-    networks:
-      - webnet
+    ports:
+      - "30038:7681"
     volumes:
       - ./volume/share:/home/student/share:ro
       - ./volume/student/38:/home/student/38
@@ -598,8 +597,8 @@ services:
   student39:
     image: student-linux-env
     container_name: student39
-    networks:
-      - webnet
+    ports:
+      - "30039:7681"
     volumes:
       - ./volume/share:/home/student/share:ro
       - ./volume/student/39:/home/student/39
@@ -612,8 +611,8 @@ services:
   student40:
     image: student-linux-env
     container_name: student40
-    networks:
-      - webnet
+    ports:
+      - "30040:7681"
     volumes:
       - ./volume/share:/home/student/share:ro
       - ./volume/student/40:/home/student/40
@@ -626,8 +625,8 @@ services:
   student41:
     image: student-linux-env
     container_name: student41
-    networks:
-      - webnet
+    ports:
+      - "30041:7681"
     volumes:
       - ./volume/share:/home/student/share:ro
       - ./volume/student/41:/home/student/41
@@ -640,8 +639,8 @@ services:
   student42:
     image: student-linux-env
     container_name: student42
-    networks:
-      - webnet
+    ports:
+      - "30042:7681"
     volumes:
       - ./volume/share:/home/student/share:ro
       - ./volume/student/42:/home/student/42
@@ -654,8 +653,8 @@ services:
   student43:
     image: student-linux-env
     container_name: student43
-    networks:
-      - webnet
+    ports:
+      - "30043:7681"
     volumes:
       - ./volume/share:/home/student/share:ro
       - ./volume/student/43:/home/student/43
@@ -668,8 +667,8 @@ services:
   student44:
     image: student-linux-env
     container_name: student44
-    networks:
-      - webnet
+    ports:
+      - "30044:7681"
     volumes:
       - ./volume/share:/home/student/share:ro
       - ./volume/student/44:/home/student/44
@@ -682,8 +681,8 @@ services:
   student45:
     image: student-linux-env
     container_name: student45
-    networks:
-      - webnet
+    ports:
+      - "30045:7681"
     volumes:
       - ./volume/share:/home/student/share:ro
       - ./volume/student/45:/home/student/45
@@ -696,8 +695,8 @@ services:
   student46:
     image: student-linux-env
     container_name: student46
-    networks:
-      - webnet
+    ports:
+      - "30046:7681"
     volumes:
       - ./volume/share:/home/student/share:ro
       - ./volume/student/46:/home/student/46
@@ -710,8 +709,8 @@ services:
   student47:
     image: student-linux-env
     container_name: student47
-    networks:
-      - webnet
+    ports:
+      - "30047:7681"
     volumes:
       - ./volume/share:/home/student/share:ro
       - ./volume/student/47:/home/student/47
@@ -724,8 +723,8 @@ services:
   student48:
     image: student-linux-env
     container_name: student48
-    networks:
-      - webnet
+    ports:
+      - "30048:7681"
     volumes:
       - ./volume/share:/home/student/share:ro
       - ./volume/student/48:/home/student/48
@@ -738,8 +737,8 @@ services:
   student49:
     image: student-linux-env
     container_name: student49
-    networks:
-      - webnet
+    ports:
+      - "30049:7681"
     volumes:
       - ./volume/share:/home/student/share:ro
       - ./volume/student/49:/home/student/49
@@ -752,8 +751,8 @@ services:
   student50:
     image: student-linux-env
     container_name: student50
-    networks:
-      - webnet
+    ports:
+      - "30050:7681"
     volumes:
       - ./volume/share:/home/student/share:ro
       - ./volume/student/50:/home/student/50
@@ -766,8 +765,8 @@ services:
   student51:
     image: student-linux-env
     container_name: student51
-    networks:
-      - webnet
+    ports:
+      - "30051:7681"
     volumes:
       - ./volume/share:/home/student/share:ro
       - ./volume/student/51:/home/student/51
@@ -780,8 +779,8 @@ services:
   student52:
     image: student-linux-env
     container_name: student52
-    networks:
-      - webnet
+    ports:
+      - "30052:7681"
     volumes:
       - ./volume/share:/home/student/share:ro
       - ./volume/student/52:/home/student/52
