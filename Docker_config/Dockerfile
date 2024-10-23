@@ -1,5 +1,5 @@
 # 使用Ubuntu作为基础镜像
-FROM ubuntu:20.04
+FROM ubuntu:22.04
 
 # 设置非交互模式
 ENV DEBIAN_FRONTEND=noninteractive
@@ -33,10 +33,12 @@ ENV LANG zh_CN.UTF-8
 ENV LANGUAGE zh_CN:zh
 ENV LC_ALL zh_CN.UTF-8
 
-# 创建学生用户并设置密码，指定UID和主目录，并复制初始配置文件
+# 创建普通用户student和拥有sudo权限的studentroot用户，并设置密码
 RUN useradd -m -u 1000 -s /bin/bash student && \
     echo "student:student_password" | chpasswd && \
-    adduser student sudo && \
+    useradd -m -u 1001 -s /bin/bash studentroot && \
+    echo "studentroot:student_password" | chpasswd && \
+    adduser studentroot sudo && \
     cp -r /etc/skel/. /home/student/ && \
     chown -R student:student /home/student/
 
@@ -52,11 +54,11 @@ RUN git clone https://github.com/tsl0922/ttyd.git /opt/ttyd && \
     mkdir build && cd build && \
     cmake .. && make && make install
 
-# 切换到学生用户
+# 切换到普通用户student
 USER student
 
 # 暴露ttyd使用的端口
 EXPOSE 7681
 
-# 设置容器启动时运行的命令
+# 设置容器启动时运行的命令，以普通用户身份登录
 CMD ["ttyd", "--writable", "-p", "7681", "bash"]
