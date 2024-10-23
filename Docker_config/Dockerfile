@@ -22,12 +22,18 @@ RUN apt-get update && apt-get install -y \
     libjson-c-dev \
     libwebsockets-dev \
     locales \
+    tzdata \
     fonts-wqy-zenhei \
     fonts-wqy-microhei
 
 # 生成并设置UTF-8和中文支持的locale
 RUN locale-gen en_US.UTF-8 zh_CN.UTF-8 && \
     update-locale LANG=zh_CN.UTF-8
+
+# 设置时区为东八区（Asia/Shanghai）
+RUN ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime && \
+    echo "Asia/Shanghai" > /etc/timezone && \
+    dpkg-reconfigure -f noninteractive tzdata
 
 # 设置环境变量以支持中文显示
 ENV LANG zh_CN.UTF-8
