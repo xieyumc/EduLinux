@@ -4,7 +4,7 @@ FROM ubuntu:22.04
 # 设置非交互模式
 ENV DEBIAN_FRONTEND=noninteractive
 
-# 更新软件包列表并安装必要的软件
+# 更新软件包列表并安装必要的软件，包括gdb
 RUN apt-get update && apt-get install -y \
     sudo \
     vim \
@@ -18,6 +18,7 @@ RUN apt-get update && apt-get install -y \
     cmake \
     make \
     gcc \
+    gdb \
     libjson-c-dev \
     libwebsockets-dev \
     locales \
