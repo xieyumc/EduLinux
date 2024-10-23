@@ -27,7 +27,7 @@ nohup python manage.py runserver 0.0.0.0:8000 &
 ```
 
 ## 学生使用
-访问`http://localhost/student1` ，sudo用户名`student`，密码`student_password`
+访问`http://localhost/student1` ，root用户名`studentroot`，密码`student_password`
 
 这个是学生1的环境，其他学生的环境分别是`http://localhost/student2` ，`http://localhost/student3`  以此类推
 
