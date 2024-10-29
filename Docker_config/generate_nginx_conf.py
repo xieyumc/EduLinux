@@ -26,7 +26,7 @@ http {
 """)
 
     # 自动生成 location 配置
-    for i in range(1, 53):
+    for i in range(0, 128):
         # 为 manage 路径生成配置，转发到 localhost:8000
         f.write(f"""
         # student{i} manage

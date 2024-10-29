@@ -13,13 +13,13 @@ services:
     depends_on:"""
     )
 
-    # 生成 52 个学生容器
-    for i in range(1, 53):
+    # 生成学生容器
+    for i in range(0, 128):
         f.write(f"\n      - student{i}")
 
     f.write("\n\n")
 
-    for i in range(1, 53):
+    for i in range(0, 128):
         f.write(
             f"""  student{i}:
     image: student-linux-env

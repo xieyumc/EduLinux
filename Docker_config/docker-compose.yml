@@ -9,6 +9,7 @@ services:
       - ./nginx.conf:/etc/nginx/nginx.conf:ro
     network_mode: host
     depends_on:
+      - student0
       - student1
       - student2
       - student3
@@ -61,6 +62,95 @@ services:
       - student50
       - student51
       - student52
+      - student53
+      - student54
+      - student55
+      - student56
+      - student57
+      - student58
+      - student59
+      - student60
+      - student61
+      - student62
+      - student63
+      - student64
+      - student65
+      - student66
+      - student67
+      - student68
+      - student69
+      - student70
+      - student71
+      - student72
+      - student73
+      - student74
+      - student75
+      - student76
+      - student77
+      - student78
+      - student79
+      - student80
+      - student81
+      - student82
+      - student83
+      - student84
+      - student85
+      - student86
+      - student87
+      - student88
+      - student89
+      - student90
+      - student91
+      - student92
+      - student93
+      - student94
+      - student95
+      - student96
+      - student97
+      - student98
+      - student99
+      - student100
+      - student101
+      - student102
+      - student103
+      - student104
+      - student105
+      - student106
+      - student107
+      - student108
+      - student109
+      - student110
+      - student111
+      - student112
+      - student113
+      - student114
+      - student115
+      - student116
+      - student117
+      - student118
+      - student119
+      - student120
+      - student121
+      - student122
+      - student123
+      - student124
+      - student125
+      - student126
+      - student127
+
+  student0:
+    image: student-linux-env
+    container_name: student0
+    ports:
+      - "30000:7681"
+    volumes:
+      - ./volume/share:/home/student/share:ro
+      - ./volume/student/0:/home/student/0
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: 128M
 
   student1:
     image: student-linux-env
@@ -785,6 +875,1055 @@ services:
       - ./volume/share:/home/student/share:ro
       - ./volume/student/52:/home/student/52
     deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: 128M
+
+  student53:
+    image: student-linux-env
+    container_name: student53
+    ports:
+      - "30053:7681"
+    volumes:
+      - ./volume/share:/home/student/share:ro
+      - ./volume/student/53:/home/student/53
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: 128M
+
+  student54:
+    image: student-linux-env
+    container_name: student54
+    ports:
+      - "30054:7681"
+    volumes:
+      - ./volume/share:/home/student/share:ro
+      - ./volume/student/54:/home/student/54
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: 128M
+
+  student55:
+    image: student-linux-env
+    container_name: student55
+    ports:
+      - "30055:7681"
+    volumes:
+      - ./volume/share:/home/student/share:ro
+      - ./volume/student/55:/home/student/55
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: 128M
+
+  student56:
+    image: student-linux-env
+    container_name: student56
+    ports:
+      - "30056:7681"
+    volumes:
+      - ./volume/share:/home/student/share:ro
+      - ./volume/student/56:/home/student/56
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: 128M
+
+  student57:
+    image: student-linux-env
+    container_name: student57
+    ports:
+      - "30057:7681"
+    volumes:
+      - ./volume/share:/home/student/share:ro
+      - ./volume/student/57:/home/student/57
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: 128M
+
+  student58:
+    image: student-linux-env
+    container_name: student58
+    ports:
+      - "30058:7681"
+    volumes:
+      - ./volume/share:/home/student/share:ro
+      - ./volume/student/58:/home/student/58
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: 128M
+
+  student59:
+    image: student-linux-env
+    container_name: student59
+    ports:
+      - "30059:7681"
+    volumes:
+      - ./volume/share:/home/student/share:ro
+      - ./volume/student/59:/home/student/59
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: 128M
+
+  student60:
+    image: student-linux-env
+    container_name: student60
+    ports:
+      - "30060:7681"
+    volumes:
+      - ./volume/share:/home/student/share:ro
+      - ./volume/student/60:/home/student/60
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: 128M
+
+  student61:
+    image: student-linux-env
+    container_name: student61
+    ports:
+      - "30061:7681"
+    volumes:
+      - ./volume/share:/home/student/share:ro
+      - ./volume/student/61:/home/student/61
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: 128M
+
+  student62:
+    image: student-linux-env
+    container_name: student62
+    ports:
+      - "30062:7681"
+    volumes:
+      - ./volume/share:/home/student/share:ro
+      - ./volume/student/62:/home/student/62
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: 128M
+
+  student63:
+    image: student-linux-env
+    container_name: student63
+    ports:
+      - "30063:7681"
+    volumes:
+      - ./volume/share:/home/student/share:ro
+      - ./volume/student/63:/home/student/63
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: 128M
+
+  student64:
+    image: student-linux-env
+    container_name: student64
+    ports:
+      - "30064:7681"
+    volumes:
+      - ./volume/share:/home/student/share:ro
+      - ./volume/student/64:/home/student/64
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: 128M
+
+  student65:
+    image: student-linux-env
+    container_name: student65
+    ports:
+      - "30065:7681"
+    volumes:
+      - ./volume/share:/home/student/share:ro
+      - ./volume/student/65:/home/student/65
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: 128M
+
+  student66:
+    image: student-linux-env
+    container_name: student66
+    ports:
+      - "30066:7681"
+    volumes:
+      - ./volume/share:/home/student/share:ro
+      - ./volume/student/66:/home/student/66
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: 128M
+
+  student67:
+    image: student-linux-env
+    container_name: student67
+    ports:
+      - "30067:7681"
+    volumes:
+      - ./volume/share:/home/student/share:ro
+      - ./volume/student/67:/home/student/67
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: 128M
+
+  student68:
+    image: student-linux-env
+    container_name: student68
+    ports:
+      - "30068:7681"
+    volumes:
+      - ./volume/share:/home/student/share:ro
+      - ./volume/student/68:/home/student/68
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: 128M
+
+  student69:
+    image: student-linux-env
+    container_name: student69
+    ports:
+      - "30069:7681"
+    volumes:
+      - ./volume/share:/home/student/share:ro
+      - ./volume/student/69:/home/student/69
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: 128M
+
+  student70:
+    image: student-linux-env
+    container_name: student70
+    ports:
+      - "30070:7681"
+    volumes:
+      - ./volume/share:/home/student/share:ro
+      - ./volume/student/70:/home/student/70
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: 128M
+
+  student71:
+    image: student-linux-env
+    container_name: student71
+    ports:
+      - "30071:7681"
+    volumes:
+      - ./volume/share:/home/student/share:ro
+      - ./volume/student/71:/home/student/71
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: 128M
+
+  student72:
+    image: student-linux-env
+    container_name: student72
+    ports:
+      - "30072:7681"
+    volumes:
+      - ./volume/share:/home/student/share:ro
+      - ./volume/student/72:/home/student/72
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: 128M
+
+  student73:
+    image: student-linux-env
+    container_name: student73
+    ports:
+      - "30073:7681"
+    volumes:
+      - ./volume/share:/home/student/share:ro
+      - ./volume/student/73:/home/student/73
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: 128M
+
+  student74:
+    image: student-linux-env
+    container_name: student74
+    ports:
+      - "30074:7681"
+    volumes:
+      - ./volume/share:/home/student/share:ro
+      - ./volume/student/74:/home/student/74
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: 128M
+
+  student75:
+    image: student-linux-env
+    container_name: student75
+    ports:
+      - "30075:7681"
+    volumes:
+      - ./volume/share:/home/student/share:ro
+      - ./volume/student/75:/home/student/75
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: 128M
+
+  student76:
+    image: student-linux-env
+    container_name: student76
+    ports:
+      - "30076:7681"
+    volumes:
+      - ./volume/share:/home/student/share:ro
+      - ./volume/student/76:/home/student/76
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: 128M
+
+  student77:
+    image: student-linux-env
+    container_name: student77
+    ports:
+      - "30077:7681"
+    volumes:
+      - ./volume/share:/home/student/share:ro
+      - ./volume/student/77:/home/student/77
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: 128M
+
+  student78:
+    image: student-linux-env
+    container_name: student78
+    ports:
+      - "30078:7681"
+    volumes:
+      - ./volume/share:/home/student/share:ro
+      - ./volume/student/78:/home/student/78
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: 128M
+
+  student79:
+    image: student-linux-env
+    container_name: student79
+    ports:
+      - "30079:7681"
+    volumes:
+      - ./volume/share:/home/student/share:ro
+      - ./volume/student/79:/home/student/79
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: 128M
+
+  student80:
+    image: student-linux-env
+    container_name: student80
+    ports:
+      - "30080:7681"
+    volumes:
+      - ./volume/share:/home/student/share:ro
+      - ./volume/student/80:/home/student/80
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: 128M
+
+  student81:
+    image: student-linux-env
+    container_name: student81
+    ports:
+      - "30081:7681"
+    volumes:
+      - ./volume/share:/home/student/share:ro
+      - ./volume/student/81:/home/student/81
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: 128M
+
+  student82:
+    image: student-linux-env
+    container_name: student82
+    ports:
+      - "30082:7681"
+    volumes:
+      - ./volume/share:/home/student/share:ro
+      - ./volume/student/82:/home/student/82
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: 128M
+
+  student83:
+    image: student-linux-env
+    container_name: student83
+    ports:
+      - "30083:7681"
+    volumes:
+      - ./volume/share:/home/student/share:ro
+      - ./volume/student/83:/home/student/83
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: 128M
+
+  student84:
+    image: student-linux-env
+    container_name: student84
+    ports:
+      - "30084:7681"
+    volumes:
+      - ./volume/share:/home/student/share:ro
+      - ./volume/student/84:/home/student/84
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: 128M
+
+  student85:
+    image: student-linux-env
+    container_name: student85
+    ports:
+      - "30085:7681"
+    volumes:
+      - ./volume/share:/home/student/share:ro
+      - ./volume/student/85:/home/student/85
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: 128M
+
+  student86:
+    image: student-linux-env
+    container_name: student86
+    ports:
+      - "30086:7681"
+    volumes:
+      - ./volume/share:/home/student/share:ro
+      - ./volume/student/86:/home/student/86
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: 128M
+
+  student87:
+    image: student-linux-env
+    container_name: student87
+    ports:
+      - "30087:7681"
+    volumes:
+      - ./volume/share:/home/student/share:ro
+      - ./volume/student/87:/home/student/87
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: 128M
+
+  student88:
+    image: student-linux-env
+    container_name: student88
+    ports:
+      - "30088:7681"
+    volumes:
+      - ./volume/share:/home/student/share:ro
+      - ./volume/student/88:/home/student/88
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: 128M
+
+  student89:
+    image: student-linux-env
+    container_name: student89
+    ports:
+      - "30089:7681"
+    volumes:
+      - ./volume/share:/home/student/share:ro
+      - ./volume/student/89:/home/student/89
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: 128M
+
+  student90:
+    image: student-linux-env
+    container_name: student90
+    ports:
+      - "30090:7681"
+    volumes:
+      - ./volume/share:/home/student/share:ro
+      - ./volume/student/90:/home/student/90
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: 128M
+
+  student91:
+    image: student-linux-env
+    container_name: student91
+    ports:
+      - "30091:7681"
+    volumes:
+      - ./volume/share:/home/student/share:ro
+      - ./volume/student/91:/home/student/91
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: 128M
+
+  student92:
+    image: student-linux-env
+    container_name: student92
+    ports:
+      - "30092:7681"
+    volumes:
+      - ./volume/share:/home/student/share:ro
+      - ./volume/student/92:/home/student/92
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: 128M
+
+  student93:
+    image: student-linux-env
+    container_name: student93
+    ports:
+      - "30093:7681"
+    volumes:
+      - ./volume/share:/home/student/share:ro
+      - ./volume/student/93:/home/student/93
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: 128M
+
+  student94:
+    image: student-linux-env
+    container_name: student94
+    ports:
+      - "30094:7681"
+    volumes:
+      - ./volume/share:/home/student/share:ro
+      - ./volume/student/94:/home/student/94
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: 128M
+
+  student95:
+    image: student-linux-env
+    container_name: student95
+    ports:
+      - "30095:7681"
+    volumes:
+      - ./volume/share:/home/student/share:ro
+      - ./volume/student/95:/home/student/95
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: 128M
+
+  student96:
+    image: student-linux-env
+    container_name: student96
+    ports:
+      - "30096:7681"
+    volumes:
+      - ./volume/share:/home/student/share:ro
+      - ./volume/student/96:/home/student/96
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: 128M
+
+  student97:
+    image: student-linux-env
+    container_name: student97
+    ports:
+      - "30097:7681"
+    volumes:
+      - ./volume/share:/home/student/share:ro
+      - ./volume/student/97:/home/student/97
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: 128M
+
+  student98:
+    image: student-linux-env
+    container_name: student98
+    ports:
+      - "30098:7681"
+    volumes:
+      - ./volume/share:/home/student/share:ro
+      - ./volume/student/98:/home/student/98
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: 128M
+
+  student99:
+    image: student-linux-env
+    container_name: student99
+    ports:
+      - "30099:7681"
+    volumes:
+      - ./volume/share:/home/student/share:ro
+      - ./volume/student/99:/home/student/99
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: 128M
+
+  student100:
+    image: student-linux-env
+    container_name: student100
+    ports:
+      - "30100:7681"
+    volumes:
+      - ./volume/share:/home/student/share:ro
+      - ./volume/student/100:/home/student/100
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: 128M
+
+  student101:
+    image: student-linux-env
+    container_name: student101
+    ports:
+      - "30101:7681"
+    volumes:
+      - ./volume/share:/home/student/share:ro
+      - ./volume/student/101:/home/student/101
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: 128M
+
+  student102:
+    image: student-linux-env
+    container_name: student102
+    ports:
+      - "30102:7681"
+    volumes:
+      - ./volume/share:/home/student/share:ro
+      - ./volume/student/102:/home/student/102
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: 128M
+
+  student103:
+    image: student-linux-env
+    container_name: student103
+    ports:
+      - "30103:7681"
+    volumes:
+      - ./volume/share:/home/student/share:ro
+      - ./volume/student/103:/home/student/103
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: 128M
+
+  student104:
+    image: student-linux-env
+    container_name: student104
+    ports:
+      - "30104:7681"
+    volumes:
+      - ./volume/share:/home/student/share:ro
+      - ./volume/student/104:/home/student/104
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: 128M
+
+  student105:
+    image: student-linux-env
+    container_name: student105
+    ports:
+      - "30105:7681"
+    volumes:
+      - ./volume/share:/home/student/share:ro
+      - ./volume/student/105:/home/student/105
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: 128M
+
+  student106:
+    image: student-linux-env
+    container_name: student106
+    ports:
+      - "30106:7681"
+    volumes:
+      - ./volume/share:/home/student/share:ro
+      - ./volume/student/106:/home/student/106
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: 128M
+
+  student107:
+    image: student-linux-env
+    container_name: student107
+    ports:
+      - "30107:7681"
+    volumes:
+      - ./volume/share:/home/student/share:ro
+      - ./volume/student/107:/home/student/107
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: 128M
+
+  student108:
+    image: student-linux-env
+    container_name: student108
+    ports:
+      - "30108:7681"
+    volumes:
+      - ./volume/share:/home/student/share:ro
+      - ./volume/student/108:/home/student/108
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: 128M
+
+  student109:
+    image: student-linux-env
+    container_name: student109
+    ports:
+      - "30109:7681"
+    volumes:
+      - ./volume/share:/home/student/share:ro
+      - ./volume/student/109:/home/student/109
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: 128M
+
+  student110:
+    image: student-linux-env
+    container_name: student110
+    ports:
+      - "30110:7681"
+    volumes:
+      - ./volume/share:/home/student/share:ro
+      - ./volume/student/110:/home/student/110
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: 128M
+
+  student111:
+    image: student-linux-env
+    container_name: student111
+    ports:
+      - "30111:7681"
+    volumes:
+      - ./volume/share:/home/student/share:ro
+      - ./volume/student/111:/home/student/111
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: 128M
+
+  student112:
+    image: student-linux-env
+    container_name: student112
+    ports:
+      - "30112:7681"
+    volumes:
+      - ./volume/share:/home/student/share:ro
+      - ./volume/student/112:/home/student/112
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: 128M
+
+  student113:
+    image: student-linux-env
+    container_name: student113
+    ports:
+      - "30113:7681"
+    volumes:
+      - ./volume/share:/home/student/share:ro
+      - ./volume/student/113:/home/student/113
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: 128M
+
+  student114:
+    image: student-linux-env
+    container_name: student114
+    ports:
+      - "30114:7681"
+    volumes:
+      - ./volume/share:/home/student/share:ro
+      - ./volume/student/114:/home/student/114
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: 128M
+
+  student115:
+    image: student-linux-env
+    container_name: student115
+    ports:
+      - "30115:7681"
+    volumes:
+      - ./volume/share:/home/student/share:ro
+      - ./volume/student/115:/home/student/115
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: 128M
+
+  student116:
+    image: student-linux-env
+    container_name: student116
+    ports:
+      - "30116:7681"
+    volumes:
+      - ./volume/share:/home/student/share:ro
+      - ./volume/student/116:/home/student/116
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: 128M
+
+  student117:
+    image: student-linux-env
+    container_name: student117
+    ports:
+      - "30117:7681"
+    volumes:
+      - ./volume/share:/home/student/share:ro
+      - ./volume/student/117:/home/student/117
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: 128M
+
+  student118:
+    image: student-linux-env
+    container_name: student118
+    ports:
+      - "30118:7681"
+    volumes:
+      - ./volume/share:/home/student/share:ro
+      - ./volume/student/118:/home/student/118
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: 128M
+
+  student119:
+    image: student-linux-env
+    container_name: student119
+    ports:
+      - "30119:7681"
+    volumes:
+      - ./volume/share:/home/student/share:ro
+      - ./volume/student/119:/home/student/119
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: 128M
+
+  student120:
+    image: student-linux-env
+    container_name: student120
+    ports:
+      - "30120:7681"
+    volumes:
+      - ./volume/share:/home/student/share:ro
+      - ./volume/student/120:/home/student/120
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: 128M
+
+  student121:
+    image: student-linux-env
+    container_name: student121
+    ports:
+      - "30121:7681"
+    volumes:
+      - ./volume/share:/home/student/share:ro
+      - ./volume/student/121:/home/student/121
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: 128M
+
+  student122:
+    image: student-linux-env
+    container_name: student122
+    ports:
+      - "30122:7681"
+    volumes:
+      - ./volume/share:/home/student/share:ro
+      - ./volume/student/122:/home/student/122
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: 128M
+
+  student123:
+    image: student-linux-env
+    container_name: student123
+    ports:
+      - "30123:7681"
+    volumes:
+      - ./volume/share:/home/student/share:ro
+      - ./volume/student/123:/home/student/123
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: 128M
+
+  student124:
+    image: student-linux-env
+    container_name: student124
+    ports:
+      - "30124:7681"
+    volumes:
+      - ./volume/share:/home/student/share:ro
+      - ./volume/student/124:/home/student/124
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: 128M
+
+  student125:
+    image: student-linux-env
+    container_name: student125
+    ports:
+      - "30125:7681"
+    volumes:
+      - ./volume/share:/home/student/share:ro
+      - ./volume/student/125:/home/student/125
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: 128M
+
+  student126:
+    image: student-linux-env
+    container_name: student126
+    ports:
+      - "30126:7681"
+    volumes:
+      - ./volume/share:/home/student/share:ro
+      - ./volume/student/126:/home/student/126
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: 128M
+
+  student127:
+    image: student-linux-env
+    container_name: student127
+    ports:
+      - "30127:7681"
+    volumes:
+      - ./volume/share:/home/student/share:ro
+      - ./volume/student/127:/home/student/127
       resources:
         limits:
           cpus: '0.1'
