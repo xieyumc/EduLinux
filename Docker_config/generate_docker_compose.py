@@ -5,8 +5,6 @@ services:
   nginx:
     image: nginx:latest
     container_name: nginx
-    ports:
-      - "80:80"
     volumes:
       - ./nginx.conf:/etc/nginx/nginx.conf:ro
     network_mode: host
