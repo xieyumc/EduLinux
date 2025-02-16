@@ -1,6 +1,13 @@
 #!/usr/bin/env python3
 
-with open("docker-compose.yml", "w") as f:
+# 先创建一个简单的 my.cnf 文件，用于禁用 Native AIO
+with open("my.cnf", "w", encoding="utf-8") as config_file:
+    config_file.write(
+"""[mysqld]
+innodb_use_native_aio = 0
+""")
+
+with open("docker-compose.yml", "w", encoding="utf-8") as f:
     # 写头部信息：版本、nginx服务
     f.write(
         """version: '3'
@@ -14,28 +21,29 @@ services:
     depends_on:"""
     )
 
-    # 让 nginx depends_on 所有 student{i} 容器（如有需要，你也可以改成 depends_on student{i}-mysql）
-    for i in range(0, 3):
+    # 让 nginx depends_on 所有 student{i} 容器
+    for i in range(0, 63):
         f.write(f"\n      - student{i}")
 
     f.write("\n\n")
 
     # 在循环里，先写 student{i}-mysql，再写 student{i} 容器
-    for i in range(0, 3):
+    for i in range(0, 63):
         # 第一个容器：student{i}-mysql
         f.write(
 f"""  student{i}-mysql:
     image: mysql:5.7
     container_name: student{i}-mysql
     environment:
-      - MYSQL_ROOT_PASSWORD=student_password
+      - MYSQL_ROOT_PASSWORD={i}
       - MYSQL_DATABASE=mydatabase
       - MYSQL_USER=student
-      - MYSQL_PASSWORD=student_password
+      - MYSQL_PASSWORD={i}
     ports:
       - "{31000 + i}:3306"
     volumes:
       - ./volume/mysql/{i}:/var/lib/mysql
+      - ./my.cnf:/etc/mysql/conf.d/my.cnf:ro
     deploy:
       resources:
         limits:
@@ -61,7 +69,7 @@ f"""  student{i}:
       resources:
         limits:
           cpus: '0.1'
-          memory: 128M
+          memory: 256M
 
 """
         )
