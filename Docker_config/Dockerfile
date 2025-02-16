@@ -4,7 +4,7 @@ FROM ubuntu:22.04
 # 设置非交互模式
 ENV DEBIAN_FRONTEND=noninteractive
 
-# 更新软件包列表并安装必要的软件，包括gdb
+# 更新软件包列表并安装必要的软件，包括gdb和 mysql-client
 RUN apt-get update && apt-get install -y \
     sudo \
     vim \
@@ -24,7 +24,8 @@ RUN apt-get update && apt-get install -y \
     locales \
     tzdata \
     fonts-wqy-zenhei \
-    fonts-wqy-microhei
+    fonts-wqy-microhei \
+    mysql-client
 
 # 生成并设置UTF-8和中文支持的locale
 RUN locale-gen en_US.UTF-8 zh_CN.UTF-8 && \
@@ -36,11 +37,11 @@ RUN ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime && \
     dpkg-reconfigure -f noninteractive tzdata
 
 # 设置环境变量以支持中文显示
-ENV LANG zh_CN.UTF-8
-ENV LANGUAGE zh_CN:zh
-ENV LC_ALL zh_CN.UTF-8
+ENV LANG=zh_CN.UTF-8
+ENV LANGUAGE=zh_CN:zh
+ENV LC_ALL=zh_CN.UTF-8
 
-# 创建普通用户student和拥有sudo权限的studentroot用户，并设置密码
+# 创建普通用户 student 和拥有 sudo 权限的 studentroot 用户，并设置密码
 RUN useradd -m -u 1000 -s /bin/bash student && \
     echo "student:student_password" | chpasswd && \
     useradd -m -u 1001 -s /bin/bash studentroot && \
@@ -55,16 +56,16 @@ ENV HOME=/home/student
 # 设置工作目录
 WORKDIR /home/student
 
-# 安装ttyd（一个Web终端工具）
+# 安装 ttyd（一个 Web 终端工具）
 RUN git clone https://github.com/tsl0922/ttyd.git /opt/ttyd && \
     cd /opt/ttyd && \
     mkdir build && cd build && \
     cmake .. && make && make install
 
-# 切换到普通用户student
+# 切换到普通用户 student
 USER student
 
-# 暴露ttyd使用的端口
+# 暴露 ttyd 使用的端口
 EXPOSE 7681
 
 # 设置容器启动时运行的命令，以普通用户身份登录
