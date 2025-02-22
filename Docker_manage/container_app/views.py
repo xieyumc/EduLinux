@@ -1,7 +1,7 @@
 import os
 import docker
 import subprocess
-from django.shortcuts import render, redirect, get_object_or_404
+from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse
 
 # 初始化 Docker 客户端
@@ -99,7 +99,8 @@ def restart_container(request, container_name):
     try:
         container = client.containers.get(container_name)
         container.restart()  # 重启容器
-        return redirect('container_detail', container_name=container_name)
+        # 在当前页面更新容器状态
+        return render(request, 'container_detail.html', {'container': get_container_data(container_name)})
     except docker.errors.NotFound:
         return HttpResponse(f"Container '{container_name}' not found.", status=404)
     except Exception as e:
@@ -122,7 +123,8 @@ def reset_container(request, container_name):
         # 启动容器
         subprocess.run(base_command + ['up', '-d', container_name], check=True)
 
-        return redirect('container_detail', container_name=container_name)
+        # 在当前页面更新容器状态
+        return render(request, 'container_detail.html', {'container': get_container_data(container_name)})
 
     except subprocess.CalledProcessError as e:
         return HttpResponse(f"Error resetting container: {str(e)}", status=500)
@@ -137,7 +139,8 @@ def restart_mysql_container(request, container_name):
         # 重新启动 MySQL 容器
         container.restart()
 
-        return redirect('container_detail', container_name=mysql_container_name)
+        # 在当前页面更新 MySQL 容器状态
+        return render(request, 'container_detail.html', {'container': get_container_data(mysql_container_name)})
     except docker.errors.NotFound:
         return HttpResponse(f"Container '{mysql_container_name}' not found.", status=404)
     except Exception as e:
@@ -158,7 +161,45 @@ def reset_mysql_container(request, container_name):
         # 启动 MySQL 容器
         subprocess.run(base_command + ['up', '-d', f'{container_name}-mysql'], check=True)
 
-        return redirect('container_detail', container_name=f'{container_name}-mysql')
+        # 在当前页面更新 MySQL 容器状态
+        return render(request, 'container_detail.html', {'container': get_container_data(f'{container_name}-mysql')})
 
     except subprocess.CalledProcessError as e:
         return HttpResponse(f"Error resetting MySQL container: {str(e)}", status=500)
+
+# 获取容器的详细数据
+def get_container_data(container_name):
+    try:
+        container = client.containers.get(container_name)
+        stats = container.stats(stream=False)
+
+        cpu_stats = stats.get('cpu_stats', {})
+        precpu_stats = stats.get('precpu_stats', {})
+
+        current_total_usage = cpu_stats.get('cpu_usage', {}).get('total_usage', 0)
+        previous_total_usage = precpu_stats.get('cpu_usage', {}).get('total_usage', 0)
+
+        current_system_usage = cpu_stats.get('system_cpu_usage', 0)
+        previous_system_usage = precpu_stats.get('system_cpu_usage', 0)
+
+        cpu_count = len(cpu_stats.get('cpu_usage', {}).get('percpu_usage', []))
+
+        cpu_delta = current_total_usage - previous_total_usage
+        system_delta = current_system_usage - previous_system_usage
+        cpu_percent = 0.0
+        if system_delta > 0 and cpu_count > 0:
+            cpu_percent = (cpu_delta / system_delta) * cpu_count * 100
+
+        memory_usage = stats.get('memory_stats', {}).get('usage', 0) / (1024 * 1024)
+
+        return {
+            'id': container.short_id,
+            'name': container.name,
+            'status': container.status,
+            'image': container.image.tags,
+            'cpu_percent': round(cpu_percent, 2),
+            'memory_usage': round(memory_usage, 2),
+            'logs': container.logs().decode('utf-8'),
+        }
+    except Exception as e:
+        raise HttpResponse(f"Error retrieving container: {str(e)}", status=500)
