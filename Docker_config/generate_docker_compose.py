@@ -42,7 +42,6 @@ f"""  student{i}-mysql:
     ports:
       - "{31000 + i}:3306"
     volumes:
-      - ./volume/mysql/{i}:/var/lib/mysql
       - ./my.cnf:/etc/mysql/conf.d/my.cnf:ro
     deploy:
       resources:
