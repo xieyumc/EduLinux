@@ -1,13 +1,26 @@
 import os
-
 import docker
-from django.shortcuts import render, redirect, get_object_or_404
 import subprocess
-from django.shortcuts import redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse
 
 # 初始化 Docker 客户端
 client = docker.from_env()
+
+# 检查是否支持 docker compose v2
+def check_docker_compose_version():
+    try:
+        # 尝试运行 'docker compose version' 来判断是否为 v2
+        result = subprocess.run(['docker', 'compose', 'version'], capture_output=True, text=True)
+        if result.returncode == 0:
+            return 'docker compose'  # v2版本
+    except FileNotFoundError:
+        pass
+    # 如果 'docker compose' 无法找到，退回到 v1
+    return 'docker-compose'
+
+# 设置 docker compose 命令（根据 Docker Compose 版本选择）
+DOCKER_COMPOSE_CMD = check_docker_compose_version()
 
 # 展示所有容器
 def list_containers(request):
@@ -81,7 +94,6 @@ def container_detail(request, container_name):
     except Exception as e:
         return HttpResponse(f"Error retrieving container: {str(e)}", status=500)
 
-
 # 重启容器
 def restart_container(request, container_name):
     try:
@@ -93,28 +105,60 @@ def restart_container(request, container_name):
     except Exception as e:
         return HttpResponse(f"Error restarting container: {str(e)}", status=500)
 
-
-
 # 重置容器：停止并重新启动 Docker Compose 中的容器
 def reset_container(request, container_name):
     try:
-        # Get the directory of the current file (views.py)
+        # 获取当前文件夹路径
         current_dir = os.path.dirname(os.path.abspath(__file__))
-        # Build the absolute path to the docker-compose.yml file
+        # Docker Compose 配置文件路径
         compose_file_path = os.path.abspath(os.path.join(current_dir, '..', '..', 'Docker_config', 'docker-compose.yml'))
 
-        # Define the base Docker Compose command with the new file path
-        base_command = ['docker', 'compose', '-f', compose_file_path]
+        base_command = [DOCKER_COMPOSE_CMD, '-f', compose_file_path]
 
-        # Stop and remove the container
+        # 停止并删除容器
         subprocess.run(base_command + ['stop', container_name], check=True)
         subprocess.run(base_command + ['rm', '-f', container_name], check=True)
 
-        # Start the container
+        # 启动容器
         subprocess.run(base_command + ['up', '-d', container_name], check=True)
 
-        # Redirect back to the container detail page
         return redirect('container_detail', container_name=container_name)
 
     except subprocess.CalledProcessError as e:
         return HttpResponse(f"Error resetting container: {str(e)}", status=500)
+
+# 重启 MySQL 容器
+def restart_mysql_container(request, container_name):
+    try:
+        # 确保容器是学生 MySQL 容器
+        mysql_container_name = f"{container_name}-mysql"
+        container = client.containers.get(mysql_container_name)
+
+        # 重新启动 MySQL 容器
+        container.restart()
+
+        return redirect('container_detail', container_name=mysql_container_name)
+    except docker.errors.NotFound:
+        return HttpResponse(f"Container '{mysql_container_name}' not found.", status=404)
+    except Exception as e:
+        return HttpResponse(f"Error restarting MySQL container: {str(e)}", status=500)
+
+# 重置 MySQL 容器：停止并重新启动 Docker Compose 中的 MySQL 容器
+def reset_mysql_container(request, container_name):
+    try:
+        current_dir = os.path.dirname(os.path.abspath(__file__))
+        compose_file_path = os.path.abspath(os.path.join(current_dir, '..', '..', 'Docker_config', 'docker-compose.yml'))
+
+        base_command = [DOCKER_COMPOSE_CMD, '-f', compose_file_path]
+
+        # 停止并删除 MySQL 容器
+        subprocess.run(base_command + ['stop', f'{container_name}-mysql'], check=True)
+        subprocess.run(base_command + ['rm', '-f', f'{container_name}-mysql'], check=True)
+
+        # 启动 MySQL 容器
+        subprocess.run(base_command + ['up', '-d', f'{container_name}-mysql'], check=True)
+
+        return redirect('container_detail', container_name=f'{container_name}-mysql')
+
+    except subprocess.CalledProcessError as e:
+        return HttpResponse(f"Error resetting MySQL container: {str(e)}", status=500)

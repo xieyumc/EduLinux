@@ -143,47 +143,70 @@
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>容器详情</h1>
-        <div class="details">
-            <p><strong>ID：</strong>{{ container.name }}({{ container.id }})</p>
-            <p><strong>状态：</strong>{{ container.status }}</p>
-            <p><strong>镜像：</strong>{{ container.image }}</p>
-            <p><strong>CPU使用率：</strong>{{ container.cpu_percent }}%</p>
-            <p><strong>内存使用：</strong>{{ container.memory_usage }}MB</p>
-        </div>
-
-        <h2>日志</h2>
-        <pre>{{ container.logs }}</pre>
-
-        <!-- 按钮组 -->
-        <div class="button-group">
-            <!-- 修改按钮，添加 onclick 事件 -->
-            <form method="POST" action="{% url 'restart_container' container.name %}" id="restart-form">
-                {% csrf_token %}
-                <button type="button" class="restart-btn" onclick="confirmRestart()">重启容器</button>
-            </form>
-
-            <form method="POST" action="{% url 'reset_container' container.name %}" id="reset-form">
-                {% csrf_token %}
-                <button type="button" class="reset-btn" onclick="confirmReset()">重置容器</button>
-            </form>
-        </div>
+<div class="container">
+    <h1>容器详情</h1>
+    <div class="details">
+        <p><strong>ID：</strong>{{ container.name }}({{ container.id }})</p>
+        <p><strong>状态：</strong>{{ container.status }}</p>
+        <p><strong>镜像：</strong>{{ container.image }}</p>
+        <p><strong>CPU使用率：</strong>{{ container.cpu_percent }}%</p>
+        <p><strong>内存使用：</strong>{{ container.memory_usage }}MB</p>
     </div>
 
-    <!-- 添加JavaScript -->
-    <script>
-        function confirmRestart() {
-            if (confirm("重启容器会停止一切正在运行的程序。确定要继续吗？")) {
-                document.getElementById('restart-form').submit();
-            }
-        }
+    <h2>日志</h2>
+    <pre>{{ container.logs }}</pre>
 
-        function confirmReset() {
-            if (confirm("重置容器会摧毁目前的容器再重新创建，这会丢失除了私人目录以外的所有文件。确定要继续吗？")) {
-                document.getElementById('reset-form').submit();
-            }
+    <!-- 按钮组 -->
+    <div class="button-group">
+        <!-- 修改按钮，添加 onclick 事件 -->
+        <form method="POST" action="{% url 'restart_container' container.name %}" id="restart-form">
+            {% csrf_token %}
+            <button type="button" class="restart-btn" onclick="confirmRestart()">重启容器</button>
+        </form>
+
+        <form method="POST" action="{% url 'reset_container' container.name %}" id="reset-form">
+            {% csrf_token %}
+            <button type="button" class="reset-btn" onclick="confirmReset()">重置容器</button>
+        </form>
+
+        <form method="POST" action="{% url 'restart_mysql_container' container.name %}" id="restart-mysql-form">
+            {% csrf_token %}
+            <button type="button" class="restart-btn" onclick="confirmRestartMysql()">重启 MySQL 容器</button>
+        </form>
+
+        <!-- 重置 MySQL 容器 -->
+        <form method="POST" action="{% url 'reset_mysql_container' container.name %}" id="reset-mysql-form">
+            {% csrf_token %}
+            <button type="button" class="reset-btn" onclick="confirmResetMysql()">重置 MySQL 容器</button>
+        </form>
+    </div>
+</div>
+
+<!-- 添加JavaScript -->
+<script>
+    function confirmRestart() {
+        if (confirm("重启容器会停止一切正在运行的程序。确定要继续吗？")) {
+            document.getElementById('restart-form').submit();
         }
-    </script>
+    }
+
+    function confirmReset() {
+        if (confirm("重置容器会摧毁目前的容器再重新创建，这会丢失除了私人目录以外的所有文件。确定要继续吗？")) {
+            document.getElementById('reset-form').submit();
+        }
+    }
+
+    function confirmRestartMysql() {
+        if (confirm("重启MySQL容器会停止一切正在运行的程序。确定要继续吗？")) {
+            document.getElementById('restart-mysql-form').submit();
+        }
+    }
+
+    function confirmResetMysql() {
+        if (confirm("重置MySQL容器会摧毁目前的容器再重新创建，这会丢失除了私人目录以外的所有文件。确定要继续吗？")) {
+            document.getElementById('reset-mysql-form').submit();
+        }
+    }
+</script>
 </body>
 </html>
