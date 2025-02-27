@@ -10,24 +10,84 @@ services:
       - student0
       - student1
       - student2
+      - student3
+      - student4
+      - student5
+      - student6
+      - student7
+      - student8
+      - student9
+      - student10
+      - student11
+      - student12
+      - student13
+      - student14
+      - student15
+      - student16
+      - student17
+      - student18
+      - student19
+      - student20
+      - student21
+      - student22
+      - student23
+      - student24
+      - student25
+      - student26
+      - student27
+      - student28
+      - student29
+      - student30
+      - student31
+      - student32
+      - student33
+      - student34
+      - student35
+      - student36
+      - student37
+      - student38
+      - student39
+      - student40
+      - student41
+      - student42
+      - student43
+      - student44
+      - student45
+      - student46
+      - student47
+      - student48
+      - student49
+      - student50
+      - student51
+      - student52
+      - student53
+      - student54
+      - student55
+      - student56
+      - student57
+      - student58
+      - student59
+      - student60
+      - student61
+      - student62
 
   student0-mysql:
-    image: mysql:5.7
+    image: mysql:latest
     container_name: student0-mysql
     environment:
-      - MYSQL_ROOT_PASSWORD=student_password
+      - MYSQL_ROOT_PASSWORD=0
       - MYSQL_DATABASE=mydatabase
       - MYSQL_USER=student
-      - MYSQL_PASSWORD=student_password
+      - MYSQL_PASSWORD=0
     ports:
       - "31000:3306"
     volumes:
-      - ./volume/mysql/0:/var/lib/mysql
+      - ./my.cnf:/etc/mysql/conf.d/my.cnf:ro
     deploy:
       resources:
         limits:
           cpus: '0.1'
-          memory: 128M
+          memory: 512M
 
   student0:
     image: student-linux-env
@@ -43,25 +103,25 @@ services:
       resources:
         limits:
           cpus: '0.1'
-          memory: 128M
+          memory: 512M
 
   student1-mysql:
-    image: mysql:5.7
+    image: mysql:latest
     container_name: student1-mysql
     environment:
-      - MYSQL_ROOT_PASSWORD=student_password
+      - MYSQL_ROOT_PASSWORD=1
       - MYSQL_DATABASE=mydatabase
       - MYSQL_USER=student
-      - MYSQL_PASSWORD=student_password
+      - MYSQL_PASSWORD=1
     ports:
       - "31001:3306"
     volumes:
-      - ./volume/mysql/1:/var/lib/mysql
+      - ./my.cnf:/etc/mysql/conf.d/my.cnf:ro
     deploy:
       resources:
         limits:
           cpus: '0.1'
-          memory: 128M
+          memory: 512M
 
   student1:
     image: student-linux-env
@@ -77,25 +137,25 @@ services:
       resources:
         limits:
           cpus: '0.1'
-          memory: 128M
+          memory: 512M
 
   student2-mysql:
-    image: mysql:5.7
+    image: mysql:latest
     container_name: student2-mysql
     environment:
-      - MYSQL_ROOT_PASSWORD=student_password
+      - MYSQL_ROOT_PASSWORD=2
       - MYSQL_DATABASE=mydatabase
       - MYSQL_USER=student
-      - MYSQL_PASSWORD=student_password
+      - MYSQL_PASSWORD=2
     ports:
       - "31002:3306"
     volumes:
-      - ./volume/mysql/2:/var/lib/mysql
+      - ./my.cnf:/etc/mysql/conf.d/my.cnf:ro
     deploy:
       resources:
         limits:
           cpus: '0.1'
-          memory: 128M
+          memory: 512M
 
   student2:
     image: student-linux-env
@@ -111,7 +171,2113 @@ services:
       resources:
         limits:
           cpus: '0.1'
-          memory: 128M
+          memory: 512M
 
+  student3-mysql:
+    image: mysql:latest
+    container_name: student3-mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=3
+      - MYSQL_DATABASE=mydatabase
+      - MYSQL_USER=student
+      - MYSQL_PASSWORD=3
+    ports:
+      - "31003:3306"
+    volumes:
+      - ./my.cnf:/etc/mysql/conf.d/my.cnf:ro
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: 512M
+
+  student3:
+    image: student-linux-env
+    container_name: student3
+    ports:
+      - "30003:7681"
+    volumes:
+      - ./volume/share:/home/student/share:ro
+      - ./volume/student/3:/home/student/3
+    depends_on:
+      - student3-mysql
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: 512M
+
+  student4-mysql:
+    image: mysql:latest
+    container_name: student4-mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=4
+      - MYSQL_DATABASE=mydatabase
+      - MYSQL_USER=student
+      - MYSQL_PASSWORD=4
+    ports:
+      - "31004:3306"
+    volumes:
+      - ./my.cnf:/etc/mysql/conf.d/my.cnf:ro
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: 512M
+
+  student4:
+    image: student-linux-env
+    container_name: student4
+    ports:
+      - "30004:7681"
+    volumes:
+      - ./volume/share:/home/student/share:ro
+      - ./volume/student/4:/home/student/4
+    depends_on:
+      - student4-mysql
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: 512M
+
+  student5-mysql:
+    image: mysql:latest
+    container_name: student5-mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=5
+      - MYSQL_DATABASE=mydatabase
+      - MYSQL_USER=student
+      - MYSQL_PASSWORD=5
+    ports:
+      - "31005:3306"
+    volumes:
+      - ./my.cnf:/etc/mysql/conf.d/my.cnf:ro
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: 512M
+
+  student5:
+    image: student-linux-env
+    container_name: student5
+    ports:
+      - "30005:7681"
+    volumes:
+      - ./volume/share:/home/student/share:ro
+      - ./volume/student/5:/home/student/5
+    depends_on:
+      - student5-mysql
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: 512M
+
+  student6-mysql:
+    image: mysql:latest
+    container_name: student6-mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=6
+      - MYSQL_DATABASE=mydatabase
+      - MYSQL_USER=student
+      - MYSQL_PASSWORD=6
+    ports:
+      - "31006:3306"
+    volumes:
+      - ./my.cnf:/etc/mysql/conf.d/my.cnf:ro
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: 512M
+
+  student6:
+    image: student-linux-env
+    container_name: student6
+    ports:
+      - "30006:7681"
+    volumes:
+      - ./volume/share:/home/student/share:ro
+      - ./volume/student/6:/home/student/6
+    depends_on:
+      - student6-mysql
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: 512M
+
+  student7-mysql:
+    image: mysql:latest
+    container_name: student7-mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=7
+      - MYSQL_DATABASE=mydatabase
+      - MYSQL_USER=student
+      - MYSQL_PASSWORD=7
+    ports:
+      - "31007:3306"
+    volumes:
+      - ./my.cnf:/etc/mysql/conf.d/my.cnf:ro
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: 512M
+
+  student7:
+    image: student-linux-env
+    container_name: student7
+    ports:
+      - "30007:7681"
+    volumes:
+      - ./volume/share:/home/student/share:ro
+      - ./volume/student/7:/home/student/7
+    depends_on:
+      - student7-mysql
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: 512M
+
+  student8-mysql:
+    image: mysql:latest
+    container_name: student8-mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=8
+      - MYSQL_DATABASE=mydatabase
+      - MYSQL_USER=student
+      - MYSQL_PASSWORD=8
+    ports:
+      - "31008:3306"
+    volumes:
+      - ./my.cnf:/etc/mysql/conf.d/my.cnf:ro
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: 512M
+
+  student8:
+    image: student-linux-env
+    container_name: student8
+    ports:
+      - "30008:7681"
+    volumes:
+      - ./volume/share:/home/student/share:ro
+      - ./volume/student/8:/home/student/8
+    depends_on:
+      - student8-mysql
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: 512M
+
+  student9-mysql:
+    image: mysql:latest
+    container_name: student9-mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=9
+      - MYSQL_DATABASE=mydatabase
+      - MYSQL_USER=student
+      - MYSQL_PASSWORD=9
+    ports:
+      - "31009:3306"
+    volumes:
+      - ./my.cnf:/etc/mysql/conf.d/my.cnf:ro
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: 512M
+
+  student9:
+    image: student-linux-env
+    container_name: student9
+    ports:
+      - "30009:7681"
+    volumes:
+      - ./volume/share:/home/student/share:ro
+      - ./volume/student/9:/home/student/9
+    depends_on:
+      - student9-mysql
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: 512M
+
+  student10-mysql:
+    image: mysql:latest
+    container_name: student10-mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=10
+      - MYSQL_DATABASE=mydatabase
+      - MYSQL_USER=student
+      - MYSQL_PASSWORD=10
+    ports:
+      - "31010:3306"
+    volumes:
+      - ./my.cnf:/etc/mysql/conf.d/my.cnf:ro
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: 512M
+
+  student10:
+    image: student-linux-env
+    container_name: student10
+    ports:
+      - "30010:7681"
+    volumes:
+      - ./volume/share:/home/student/share:ro
+      - ./volume/student/10:/home/student/10
+    depends_on:
+      - student10-mysql
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: 512M
+
+  student11-mysql:
+    image: mysql:latest
+    container_name: student11-mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=11
+      - MYSQL_DATABASE=mydatabase
+      - MYSQL_USER=student
+      - MYSQL_PASSWORD=11
+    ports:
+      - "31011:3306"
+    volumes:
+      - ./my.cnf:/etc/mysql/conf.d/my.cnf:ro
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: 512M
+
+  student11:
+    image: student-linux-env
+    container_name: student11
+    ports:
+      - "30011:7681"
+    volumes:
+      - ./volume/share:/home/student/share:ro
+      - ./volume/student/11:/home/student/11
+    depends_on:
+      - student11-mysql
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: 512M
+
+  student12-mysql:
+    image: mysql:latest
+    container_name: student12-mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=12
+      - MYSQL_DATABASE=mydatabase
+      - MYSQL_USER=student
+      - MYSQL_PASSWORD=12
+    ports:
+      - "31012:3306"
+    volumes:
+      - ./my.cnf:/etc/mysql/conf.d/my.cnf:ro
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: 512M
+
+  student12:
+    image: student-linux-env
+    container_name: student12
+    ports:
+      - "30012:7681"
+    volumes:
+      - ./volume/share:/home/student/share:ro
+      - ./volume/student/12:/home/student/12
+    depends_on:
+      - student12-mysql
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: 512M
+
+  student13-mysql:
+    image: mysql:latest
+    container_name: student13-mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=13
+      - MYSQL_DATABASE=mydatabase
+      - MYSQL_USER=student
+      - MYSQL_PASSWORD=13
+    ports:
+      - "31013:3306"
+    volumes:
+      - ./my.cnf:/etc/mysql/conf.d/my.cnf:ro
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: 512M
+
+  student13:
+    image: student-linux-env
+    container_name: student13
+    ports:
+      - "30013:7681"
+    volumes:
+      - ./volume/share:/home/student/share:ro
+      - ./volume/student/13:/home/student/13
+    depends_on:
+      - student13-mysql
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: 512M
+
+  student14-mysql:
+    image: mysql:latest
+    container_name: student14-mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=14
+      - MYSQL_DATABASE=mydatabase
+      - MYSQL_USER=student
+      - MYSQL_PASSWORD=14
+    ports:
+      - "31014:3306"
+    volumes:
+      - ./my.cnf:/etc/mysql/conf.d/my.cnf:ro
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: 512M
+
+  student14:
+    image: student-linux-env
+    container_name: student14
+    ports:
+      - "30014:7681"
+    volumes:
+      - ./volume/share:/home/student/share:ro
+      - ./volume/student/14:/home/student/14
+    depends_on:
+      - student14-mysql
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: 512M
+
+  student15-mysql:
+    image: mysql:latest
+    container_name: student15-mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=15
+      - MYSQL_DATABASE=mydatabase
+      - MYSQL_USER=student
+      - MYSQL_PASSWORD=15
+    ports:
+      - "31015:3306"
+    volumes:
+      - ./my.cnf:/etc/mysql/conf.d/my.cnf:ro
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: 512M
+
+  student15:
+    image: student-linux-env
+    container_name: student15
+    ports:
+      - "30015:7681"
+    volumes:
+      - ./volume/share:/home/student/share:ro
+      - ./volume/student/15:/home/student/15
+    depends_on:
+      - student15-mysql
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: 512M
+
+  student16-mysql:
+    image: mysql:latest
+    container_name: student16-mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=16
+      - MYSQL_DATABASE=mydatabase
+      - MYSQL_USER=student
+      - MYSQL_PASSWORD=16
+    ports:
+      - "31016:3306"
+    volumes:
+      - ./my.cnf:/etc/mysql/conf.d/my.cnf:ro
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: 512M
+
+  student16:
+    image: student-linux-env
+    container_name: student16
+    ports:
+      - "30016:7681"
+    volumes:
+      - ./volume/share:/home/student/share:ro
+      - ./volume/student/16:/home/student/16
+    depends_on:
+      - student16-mysql
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: 512M
+
+  student17-mysql:
+    image: mysql:latest
+    container_name: student17-mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=17
+      - MYSQL_DATABASE=mydatabase
+      - MYSQL_USER=student
+      - MYSQL_PASSWORD=17
+    ports:
+      - "31017:3306"
+    volumes:
+      - ./my.cnf:/etc/mysql/conf.d/my.cnf:ro
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: 512M
+
+  student17:
+    image: student-linux-env
+    container_name: student17
+    ports:
+      - "30017:7681"
+    volumes:
+      - ./volume/share:/home/student/share:ro
+      - ./volume/student/17:/home/student/17
+    depends_on:
+      - student17-mysql
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: 512M
+
+  student18-mysql:
+    image: mysql:latest
+    container_name: student18-mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=18
+      - MYSQL_DATABASE=mydatabase
+      - MYSQL_USER=student
+      - MYSQL_PASSWORD=18
+    ports:
+      - "31018:3306"
+    volumes:
+      - ./my.cnf:/etc/mysql/conf.d/my.cnf:ro
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: 512M
+
+  student18:
+    image: student-linux-env
+    container_name: student18
+    ports:
+      - "30018:7681"
+    volumes:
+      - ./volume/share:/home/student/share:ro
+      - ./volume/student/18:/home/student/18
+    depends_on:
+      - student18-mysql
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: 512M
+
+  student19-mysql:
+    image: mysql:latest
+    container_name: student19-mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=19
+      - MYSQL_DATABASE=mydatabase
+      - MYSQL_USER=student
+      - MYSQL_PASSWORD=19
+    ports:
+      - "31019:3306"
+    volumes:
+      - ./my.cnf:/etc/mysql/conf.d/my.cnf:ro
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: 512M
+
+  student19:
+    image: student-linux-env
+    container_name: student19
+    ports:
+      - "30019:7681"
+    volumes:
+      - ./volume/share:/home/student/share:ro
+      - ./volume/student/19:/home/student/19
+    depends_on:
+      - student19-mysql
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: 512M
+
+  student20-mysql:
+    image: mysql:latest
+    container_name: student20-mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=20
+      - MYSQL_DATABASE=mydatabase
+      - MYSQL_USER=student
+      - MYSQL_PASSWORD=20
+    ports:
+      - "31020:3306"
+    volumes:
+      - ./my.cnf:/etc/mysql/conf.d/my.cnf:ro
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: 512M
+
+  student20:
+    image: student-linux-env
+    container_name: student20
+    ports:
+      - "30020:7681"
+    volumes:
+      - ./volume/share:/home/student/share:ro
+      - ./volume/student/20:/home/student/20
+    depends_on:
+      - student20-mysql
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: 512M
+
+  student21-mysql:
+    image: mysql:latest
+    container_name: student21-mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=21
+      - MYSQL_DATABASE=mydatabase
+      - MYSQL_USER=student
+      - MYSQL_PASSWORD=21
+    ports:
+      - "31021:3306"
+    volumes:
+      - ./my.cnf:/etc/mysql/conf.d/my.cnf:ro
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: 512M
+
+  student21:
+    image: student-linux-env
+    container_name: student21
+    ports:
+      - "30021:7681"
+    volumes:
+      - ./volume/share:/home/student/share:ro
+      - ./volume/student/21:/home/student/21
+    depends_on:
+      - student21-mysql
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: 512M
+
+  student22-mysql:
+    image: mysql:latest
+    container_name: student22-mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=22
+      - MYSQL_DATABASE=mydatabase
+      - MYSQL_USER=student
+      - MYSQL_PASSWORD=22
+    ports:
+      - "31022:3306"
+    volumes:
+      - ./my.cnf:/etc/mysql/conf.d/my.cnf:ro
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: 512M
+
+  student22:
+    image: student-linux-env
+    container_name: student22
+    ports:
+      - "30022:7681"
+    volumes:
+      - ./volume/share:/home/student/share:ro
+      - ./volume/student/22:/home/student/22
+    depends_on:
+      - student22-mysql
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: 512M
+
+  student23-mysql:
+    image: mysql:latest
+    container_name: student23-mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=23
+      - MYSQL_DATABASE=mydatabase
+      - MYSQL_USER=student
+      - MYSQL_PASSWORD=23
+    ports:
+      - "31023:3306"
+    volumes:
+      - ./my.cnf:/etc/mysql/conf.d/my.cnf:ro
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: 512M
+
+  student23:
+    image: student-linux-env
+    container_name: student23
+    ports:
+      - "30023:7681"
+    volumes:
+      - ./volume/share:/home/student/share:ro
+      - ./volume/student/23:/home/student/23
+    depends_on:
+      - student23-mysql
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: 512M
+
+  student24-mysql:
+    image: mysql:latest
+    container_name: student24-mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=24
+      - MYSQL_DATABASE=mydatabase
+      - MYSQL_USER=student
+      - MYSQL_PASSWORD=24
+    ports:
+      - "31024:3306"
+    volumes:
+      - ./my.cnf:/etc/mysql/conf.d/my.cnf:ro
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: 512M
+
+  student24:
+    image: student-linux-env
+    container_name: student24
+    ports:
+      - "30024:7681"
+    volumes:
+      - ./volume/share:/home/student/share:ro
+      - ./volume/student/24:/home/student/24
+    depends_on:
+      - student24-mysql
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: 512M
+
+  student25-mysql:
+    image: mysql:latest
+    container_name: student25-mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=25
+      - MYSQL_DATABASE=mydatabase
+      - MYSQL_USER=student
+      - MYSQL_PASSWORD=25
+    ports:
+      - "31025:3306"
+    volumes:
+      - ./my.cnf:/etc/mysql/conf.d/my.cnf:ro
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: 512M
+
+  student25:
+    image: student-linux-env
+    container_name: student25
+    ports:
+      - "30025:7681"
+    volumes:
+      - ./volume/share:/home/student/share:ro
+      - ./volume/student/25:/home/student/25
+    depends_on:
+      - student25-mysql
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: 512M
+
+  student26-mysql:
+    image: mysql:latest
+    container_name: student26-mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=26
+      - MYSQL_DATABASE=mydatabase
+      - MYSQL_USER=student
+      - MYSQL_PASSWORD=26
+    ports:
+      - "31026:3306"
+    volumes:
+      - ./my.cnf:/etc/mysql/conf.d/my.cnf:ro
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: 512M
+
+  student26:
+    image: student-linux-env
+    container_name: student26
+    ports:
+      - "30026:7681"
+    volumes:
+      - ./volume/share:/home/student/share:ro
+      - ./volume/student/26:/home/student/26
+    depends_on:
+      - student26-mysql
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: 512M
+
+  student27-mysql:
+    image: mysql:latest
+    container_name: student27-mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=27
+      - MYSQL_DATABASE=mydatabase
+      - MYSQL_USER=student
+      - MYSQL_PASSWORD=27
+    ports:
+      - "31027:3306"
+    volumes:
+      - ./my.cnf:/etc/mysql/conf.d/my.cnf:ro
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: 512M
+
+  student27:
+    image: student-linux-env
+    container_name: student27
+    ports:
+      - "30027:7681"
+    volumes:
+      - ./volume/share:/home/student/share:ro
+      - ./volume/student/27:/home/student/27
+    depends_on:
+      - student27-mysql
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: 512M
+
+  student28-mysql:
+    image: mysql:latest
+    container_name: student28-mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=28
+      - MYSQL_DATABASE=mydatabase
+      - MYSQL_USER=student
+      - MYSQL_PASSWORD=28
+    ports:
+      - "31028:3306"
+    volumes:
+      - ./my.cnf:/etc/mysql/conf.d/my.cnf:ro
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: 512M
+
+  student28:
+    image: student-linux-env
+    container_name: student28
+    ports:
+      - "30028:7681"
+    volumes:
+      - ./volume/share:/home/student/share:ro
+      - ./volume/student/28:/home/student/28
+    depends_on:
+      - student28-mysql
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: 512M
+
+  student29-mysql:
+    image: mysql:latest
+    container_name: student29-mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=29
+      - MYSQL_DATABASE=mydatabase
+      - MYSQL_USER=student
+      - MYSQL_PASSWORD=29
+    ports:
+      - "31029:3306"
+    volumes:
+      - ./my.cnf:/etc/mysql/conf.d/my.cnf:ro
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: 512M
+
+  student29:
+    image: student-linux-env
+    container_name: student29
+    ports:
+      - "30029:7681"
+    volumes:
+      - ./volume/share:/home/student/share:ro
+      - ./volume/student/29:/home/student/29
+    depends_on:
+      - student29-mysql
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: 512M
+
+  student30-mysql:
+    image: mysql:latest
+    container_name: student30-mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=30
+      - MYSQL_DATABASE=mydatabase
+      - MYSQL_USER=student
+      - MYSQL_PASSWORD=30
+    ports:
+      - "31030:3306"
+    volumes:
+      - ./my.cnf:/etc/mysql/conf.d/my.cnf:ro
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: 512M
+
+  student30:
+    image: student-linux-env
+    container_name: student30
+    ports:
+      - "30030:7681"
+    volumes:
+      - ./volume/share:/home/student/share:ro
+      - ./volume/student/30:/home/student/30
+    depends_on:
+      - student30-mysql
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: 512M
+
+  student31-mysql:
+    image: mysql:latest
+    container_name: student31-mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=31
+      - MYSQL_DATABASE=mydatabase
+      - MYSQL_USER=student
+      - MYSQL_PASSWORD=31
+    ports:
+      - "31031:3306"
+    volumes:
+      - ./my.cnf:/etc/mysql/conf.d/my.cnf:ro
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: 512M
+
+  student31:
+    image: student-linux-env
+    container_name: student31
+    ports:
+      - "30031:7681"
+    volumes:
+      - ./volume/share:/home/student/share:ro
+      - ./volume/student/31:/home/student/31
+    depends_on:
+      - student31-mysql
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: 512M
+
+  student32-mysql:
+    image: mysql:latest
+    container_name: student32-mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=32
+      - MYSQL_DATABASE=mydatabase
+      - MYSQL_USER=student
+      - MYSQL_PASSWORD=32
+    ports:
+      - "31032:3306"
+    volumes:
+      - ./my.cnf:/etc/mysql/conf.d/my.cnf:ro
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: 512M
+
+  student32:
+    image: student-linux-env
+    container_name: student32
+    ports:
+      - "30032:7681"
+    volumes:
+      - ./volume/share:/home/student/share:ro
+      - ./volume/student/32:/home/student/32
+    depends_on:
+      - student32-mysql
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: 512M
+
+  student33-mysql:
+    image: mysql:latest
+    container_name: student33-mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=33
+      - MYSQL_DATABASE=mydatabase
+      - MYSQL_USER=student
+      - MYSQL_PASSWORD=33
+    ports:
+      - "31033:3306"
+    volumes:
+      - ./my.cnf:/etc/mysql/conf.d/my.cnf:ro
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: 512M
+
+  student33:
+    image: student-linux-env
+    container_name: student33
+    ports:
+      - "30033:7681"
+    volumes:
+      - ./volume/share:/home/student/share:ro
+      - ./volume/student/33:/home/student/33
+    depends_on:
+      - student33-mysql
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: 512M
+
+  student34-mysql:
+    image: mysql:latest
+    container_name: student34-mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=34
+      - MYSQL_DATABASE=mydatabase
+      - MYSQL_USER=student
+      - MYSQL_PASSWORD=34
+    ports:
+      - "31034:3306"
+    volumes:
+      - ./my.cnf:/etc/mysql/conf.d/my.cnf:ro
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: 512M
+
+  student34:
+    image: student-linux-env
+    container_name: student34
+    ports:
+      - "30034:7681"
+    volumes:
+      - ./volume/share:/home/student/share:ro
+      - ./volume/student/34:/home/student/34
+    depends_on:
+      - student34-mysql
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: 512M
+
+  student35-mysql:
+    image: mysql:latest
+    container_name: student35-mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=35
+      - MYSQL_DATABASE=mydatabase
+      - MYSQL_USER=student
+      - MYSQL_PASSWORD=35
+    ports:
+      - "31035:3306"
+    volumes:
+      - ./my.cnf:/etc/mysql/conf.d/my.cnf:ro
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: 512M
+
+  student35:
+    image: student-linux-env
+    container_name: student35
+    ports:
+      - "30035:7681"
+    volumes:
+      - ./volume/share:/home/student/share:ro
+      - ./volume/student/35:/home/student/35
+    depends_on:
+      - student35-mysql
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: 512M
+
+  student36-mysql:
+    image: mysql:latest
+    container_name: student36-mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=36
+      - MYSQL_DATABASE=mydatabase
+      - MYSQL_USER=student
+      - MYSQL_PASSWORD=36
+    ports:
+      - "31036:3306"
+    volumes:
+      - ./my.cnf:/etc/mysql/conf.d/my.cnf:ro
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: 512M
+
+  student36:
+    image: student-linux-env
+    container_name: student36
+    ports:
+      - "30036:7681"
+    volumes:
+      - ./volume/share:/home/student/share:ro
+      - ./volume/student/36:/home/student/36
+    depends_on:
+      - student36-mysql
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: 512M
+
+  student37-mysql:
+    image: mysql:latest
+    container_name: student37-mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=37
+      - MYSQL_DATABASE=mydatabase
+      - MYSQL_USER=student
+      - MYSQL_PASSWORD=37
+    ports:
+      - "31037:3306"
+    volumes:
+      - ./my.cnf:/etc/mysql/conf.d/my.cnf:ro
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: 512M
+
+  student37:
+    image: student-linux-env
+    container_name: student37
+    ports:
+      - "30037:7681"
+    volumes:
+      - ./volume/share:/home/student/share:ro
+      - ./volume/student/37:/home/student/37
+    depends_on:
+      - student37-mysql
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: 512M
+
+  student38-mysql:
+    image: mysql:latest
+    container_name: student38-mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=38
+      - MYSQL_DATABASE=mydatabase
+      - MYSQL_USER=student
+      - MYSQL_PASSWORD=38
+    ports:
+      - "31038:3306"
+    volumes:
+      - ./my.cnf:/etc/mysql/conf.d/my.cnf:ro
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: 512M
+
+  student38:
+    image: student-linux-env
+    container_name: student38
+    ports:
+      - "30038:7681"
+    volumes:
+      - ./volume/share:/home/student/share:ro
+      - ./volume/student/38:/home/student/38
+    depends_on:
+      - student38-mysql
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: 512M
+
+  student39-mysql:
+    image: mysql:latest
+    container_name: student39-mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=39
+      - MYSQL_DATABASE=mydatabase
+      - MYSQL_USER=student
+      - MYSQL_PASSWORD=39
+    ports:
+      - "31039:3306"
+    volumes:
+      - ./my.cnf:/etc/mysql/conf.d/my.cnf:ro
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: 512M
+
+  student39:
+    image: student-linux-env
+    container_name: student39
+    ports:
+      - "30039:7681"
+    volumes:
+      - ./volume/share:/home/student/share:ro
+      - ./volume/student/39:/home/student/39
+    depends_on:
+      - student39-mysql
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: 512M
+
+  student40-mysql:
+    image: mysql:latest
+    container_name: student40-mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=40
+      - MYSQL_DATABASE=mydatabase
+      - MYSQL_USER=student
+      - MYSQL_PASSWORD=40
+    ports:
+      - "31040:3306"
+    volumes:
+      - ./my.cnf:/etc/mysql/conf.d/my.cnf:ro
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: 512M
+
+  student40:
+    image: student-linux-env
+    container_name: student40
+    ports:
+      - "30040:7681"
+    volumes:
+      - ./volume/share:/home/student/share:ro
+      - ./volume/student/40:/home/student/40
+    depends_on:
+      - student40-mysql
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: 512M
+
+  student41-mysql:
+    image: mysql:latest
+    container_name: student41-mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=41
+      - MYSQL_DATABASE=mydatabase
+      - MYSQL_USER=student
+      - MYSQL_PASSWORD=41
+    ports:
+      - "31041:3306"
+    volumes:
+      - ./my.cnf:/etc/mysql/conf.d/my.cnf:ro
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: 512M
+
+  student41:
+    image: student-linux-env
+    container_name: student41
+    ports:
+      - "30041:7681"
+    volumes:
+      - ./volume/share:/home/student/share:ro
+      - ./volume/student/41:/home/student/41
+    depends_on:
+      - student41-mysql
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: 512M
+
+  student42-mysql:
+    image: mysql:latest
+    container_name: student42-mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=42
+      - MYSQL_DATABASE=mydatabase
+      - MYSQL_USER=student
+      - MYSQL_PASSWORD=42
+    ports:
+      - "31042:3306"
+    volumes:
+      - ./my.cnf:/etc/mysql/conf.d/my.cnf:ro
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: 512M
+
+  student42:
+    image: student-linux-env
+    container_name: student42
+    ports:
+      - "30042:7681"
+    volumes:
+      - ./volume/share:/home/student/share:ro
+      - ./volume/student/42:/home/student/42
+    depends_on:
+      - student42-mysql
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: 512M
+
+  student43-mysql:
+    image: mysql:latest
+    container_name: student43-mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=43
+      - MYSQL_DATABASE=mydatabase
+      - MYSQL_USER=student
+      - MYSQL_PASSWORD=43
+    ports:
+      - "31043:3306"
+    volumes:
+      - ./my.cnf:/etc/mysql/conf.d/my.cnf:ro
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: 512M
+
+  student43:
+    image: student-linux-env
+    container_name: student43
+    ports:
+      - "30043:7681"
+    volumes:
+      - ./volume/share:/home/student/share:ro
+      - ./volume/student/43:/home/student/43
+    depends_on:
+      - student43-mysql
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: 512M
+
+  student44-mysql:
+    image: mysql:latest
+    container_name: student44-mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=44
+      - MYSQL_DATABASE=mydatabase
+      - MYSQL_USER=student
+      - MYSQL_PASSWORD=44
+    ports:
+      - "31044:3306"
+    volumes:
+      - ./my.cnf:/etc/mysql/conf.d/my.cnf:ro
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: 512M
+
+  student44:
+    image: student-linux-env
+    container_name: student44
+    ports:
+      - "30044:7681"
+    volumes:
+      - ./volume/share:/home/student/share:ro
+      - ./volume/student/44:/home/student/44
+    depends_on:
+      - student44-mysql
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: 512M
+
+  student45-mysql:
+    image: mysql:latest
+    container_name: student45-mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=45
+      - MYSQL_DATABASE=mydatabase
+      - MYSQL_USER=student
+      - MYSQL_PASSWORD=45
+    ports:
+      - "31045:3306"
+    volumes:
+      - ./my.cnf:/etc/mysql/conf.d/my.cnf:ro
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: 512M
+
+  student45:
+    image: student-linux-env
+    container_name: student45
+    ports:
+      - "30045:7681"
+    volumes:
+      - ./volume/share:/home/student/share:ro
+      - ./volume/student/45:/home/student/45
+    depends_on:
+      - student45-mysql
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: 512M
+
+  student46-mysql:
+    image: mysql:latest
+    container_name: student46-mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=46
+      - MYSQL_DATABASE=mydatabase
+      - MYSQL_USER=student
+      - MYSQL_PASSWORD=46
+    ports:
+      - "31046:3306"
+    volumes:
+      - ./my.cnf:/etc/mysql/conf.d/my.cnf:ro
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: 512M
+
+  student46:
+    image: student-linux-env
+    container_name: student46
+    ports:
+      - "30046:7681"
+    volumes:
+      - ./volume/share:/home/student/share:ro
+      - ./volume/student/46:/home/student/46
+    depends_on:
+      - student46-mysql
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: 512M
+
+  student47-mysql:
+    image: mysql:latest
+    container_name: student47-mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=47
+      - MYSQL_DATABASE=mydatabase
+      - MYSQL_USER=student
+      - MYSQL_PASSWORD=47
+    ports:
+      - "31047:3306"
+    volumes:
+      - ./my.cnf:/etc/mysql/conf.d/my.cnf:ro
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: 512M
+
+  student47:
+    image: student-linux-env
+    container_name: student47
+    ports:
+      - "30047:7681"
+    volumes:
+      - ./volume/share:/home/student/share:ro
+      - ./volume/student/47:/home/student/47
+    depends_on:
+      - student47-mysql
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: 512M
+
+  student48-mysql:
+    image: mysql:latest
+    container_name: student48-mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=48
+      - MYSQL_DATABASE=mydatabase
+      - MYSQL_USER=student
+      - MYSQL_PASSWORD=48
+    ports:
+      - "31048:3306"
+    volumes:
+      - ./my.cnf:/etc/mysql/conf.d/my.cnf:ro
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: 512M
+
+  student48:
+    image: student-linux-env
+    container_name: student48
+    ports:
+      - "30048:7681"
+    volumes:
+      - ./volume/share:/home/student/share:ro
+      - ./volume/student/48:/home/student/48
+    depends_on:
+      - student48-mysql
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: 512M
+
+  student49-mysql:
+    image: mysql:latest
+    container_name: student49-mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=49
+      - MYSQL_DATABASE=mydatabase
+      - MYSQL_USER=student
+      - MYSQL_PASSWORD=49
+    ports:
+      - "31049:3306"
+    volumes:
+      - ./my.cnf:/etc/mysql/conf.d/my.cnf:ro
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: 512M
+
+  student49:
+    image: student-linux-env
+    container_name: student49
+    ports:
+      - "30049:7681"
+    volumes:
+      - ./volume/share:/home/student/share:ro
+      - ./volume/student/49:/home/student/49
+    depends_on:
+      - student49-mysql
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: 512M
+
+  student50-mysql:
+    image: mysql:latest
+    container_name: student50-mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=50
+      - MYSQL_DATABASE=mydatabase
+      - MYSQL_USER=student
+      - MYSQL_PASSWORD=50
+    ports:
+      - "31050:3306"
+    volumes:
+      - ./my.cnf:/etc/mysql/conf.d/my.cnf:ro
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: 512M
+
+  student50:
+    image: student-linux-env
+    container_name: student50
+    ports:
+      - "30050:7681"
+    volumes:
+      - ./volume/share:/home/student/share:ro
+      - ./volume/student/50:/home/student/50
+    depends_on:
+      - student50-mysql
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: 512M
+
+  student51-mysql:
+    image: mysql:latest
+    container_name: student51-mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=51
+      - MYSQL_DATABASE=mydatabase
+      - MYSQL_USER=student
+      - MYSQL_PASSWORD=51
+    ports:
+      - "31051:3306"
+    volumes:
+      - ./my.cnf:/etc/mysql/conf.d/my.cnf:ro
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: 512M
+
+  student51:
+    image: student-linux-env
+    container_name: student51
+    ports:
+      - "30051:7681"
+    volumes:
+      - ./volume/share:/home/student/share:ro
+      - ./volume/student/51:/home/student/51
+    depends_on:
+      - student51-mysql
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: 512M
+
+  student52-mysql:
+    image: mysql:latest
+    container_name: student52-mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=52
+      - MYSQL_DATABASE=mydatabase
+      - MYSQL_USER=student
+      - MYSQL_PASSWORD=52
+    ports:
+      - "31052:3306"
+    volumes:
+      - ./my.cnf:/etc/mysql/conf.d/my.cnf:ro
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: 512M
+
+  student52:
+    image: student-linux-env
+    container_name: student52
+    ports:
+      - "30052:7681"
+    volumes:
+      - ./volume/share:/home/student/share:ro
+      - ./volume/student/52:/home/student/52
+    depends_on:
+      - student52-mysql
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: 512M
+
+  student53-mysql:
+    image: mysql:latest
+    container_name: student53-mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=53
+      - MYSQL_DATABASE=mydatabase
+      - MYSQL_USER=student
+      - MYSQL_PASSWORD=53
+    ports:
+      - "31053:3306"
+    volumes:
+      - ./my.cnf:/etc/mysql/conf.d/my.cnf:ro
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: 512M
+
+  student53:
+    image: student-linux-env
+    container_name: student53
+    ports:
+      - "30053:7681"
+    volumes:
+      - ./volume/share:/home/student/share:ro
+      - ./volume/student/53:/home/student/53
+    depends_on:
+      - student53-mysql
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: 512M
+
+  student54-mysql:
+    image: mysql:latest
+    container_name: student54-mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=54
+      - MYSQL_DATABASE=mydatabase
+      - MYSQL_USER=student
+      - MYSQL_PASSWORD=54
+    ports:
+      - "31054:3306"
+    volumes:
+      - ./my.cnf:/etc/mysql/conf.d/my.cnf:ro
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: 512M
+
+  student54:
+    image: student-linux-env
+    container_name: student54
+    ports:
+      - "30054:7681"
+    volumes:
+      - ./volume/share:/home/student/share:ro
+      - ./volume/student/54:/home/student/54
+    depends_on:
+      - student54-mysql
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: 512M
+
+  student55-mysql:
+    image: mysql:latest
+    container_name: student55-mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=55
+      - MYSQL_DATABASE=mydatabase
+      - MYSQL_USER=student
+      - MYSQL_PASSWORD=55
+    ports:
+      - "31055:3306"
+    volumes:
+      - ./my.cnf:/etc/mysql/conf.d/my.cnf:ro
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: 512M
+
+  student55:
+    image: student-linux-env
+    container_name: student55
+    ports:
+      - "30055:7681"
+    volumes:
+      - ./volume/share:/home/student/share:ro
+      - ./volume/student/55:/home/student/55
+    depends_on:
+      - student55-mysql
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: 512M
+
+  student56-mysql:
+    image: mysql:latest
+    container_name: student56-mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=56
+      - MYSQL_DATABASE=mydatabase
+      - MYSQL_USER=student
+      - MYSQL_PASSWORD=56
+    ports:
+      - "31056:3306"
+    volumes:
+      - ./my.cnf:/etc/mysql/conf.d/my.cnf:ro
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: 512M
+
+  student56:
+    image: student-linux-env
+    container_name: student56
+    ports:
+      - "30056:7681"
+    volumes:
+      - ./volume/share:/home/student/share:ro
+      - ./volume/student/56:/home/student/56
+    depends_on:
+      - student56-mysql
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: 512M
+
+  student57-mysql:
+    image: mysql:latest
+    container_name: student57-mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=57
+      - MYSQL_DATABASE=mydatabase
+      - MYSQL_USER=student
+      - MYSQL_PASSWORD=57
+    ports:
+      - "31057:3306"
+    volumes:
+      - ./my.cnf:/etc/mysql/conf.d/my.cnf:ro
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: 512M
+
+  student57:
+    image: student-linux-env
+    container_name: student57
+    ports:
+      - "30057:7681"
+    volumes:
+      - ./volume/share:/home/student/share:ro
+      - ./volume/student/57:/home/student/57
+    depends_on:
+      - student57-mysql
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: 512M
+
+  student58-mysql:
+    image: mysql:latest
+    container_name: student58-mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=58
+      - MYSQL_DATABASE=mydatabase
+      - MYSQL_USER=student
+      - MYSQL_PASSWORD=58
+    ports:
+      - "31058:3306"
+    volumes:
+      - ./my.cnf:/etc/mysql/conf.d/my.cnf:ro
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: 512M
+
+  student58:
+    image: student-linux-env
+    container_name: student58
+    ports:
+      - "30058:7681"
+    volumes:
+      - ./volume/share:/home/student/share:ro
+      - ./volume/student/58:/home/student/58
+    depends_on:
+      - student58-mysql
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: 512M
+
+  student59-mysql:
+    image: mysql:latest
+    container_name: student59-mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=59
+      - MYSQL_DATABASE=mydatabase
+      - MYSQL_USER=student
+      - MYSQL_PASSWORD=59
+    ports:
+      - "31059:3306"
+    volumes:
+      - ./my.cnf:/etc/mysql/conf.d/my.cnf:ro
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: 512M
+
+  student59:
+    image: student-linux-env
+    container_name: student59
+    ports:
+      - "30059:7681"
+    volumes:
+      - ./volume/share:/home/student/share:ro
+      - ./volume/student/59:/home/student/59
+    depends_on:
+      - student59-mysql
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: 512M
+
+  student60-mysql:
+    image: mysql:latest
+    container_name: student60-mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=60
+      - MYSQL_DATABASE=mydatabase
+      - MYSQL_USER=student
+      - MYSQL_PASSWORD=60
+    ports:
+      - "31060:3306"
+    volumes:
+      - ./my.cnf:/etc/mysql/conf.d/my.cnf:ro
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: 512M
+
+  student60:
+    image: student-linux-env
+    container_name: student60
+    ports:
+      - "30060:7681"
+    volumes:
+      - ./volume/share:/home/student/share:ro
+      - ./volume/student/60:/home/student/60
+    depends_on:
+      - student60-mysql
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: 512M
+
+  student61-mysql:
+    image: mysql:latest
+    container_name: student61-mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=61
+      - MYSQL_DATABASE=mydatabase
+      - MYSQL_USER=student
+      - MYSQL_PASSWORD=61
+    ports:
+      - "31061:3306"
+    volumes:
+      - ./my.cnf:/etc/mysql/conf.d/my.cnf:ro
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: 512M
+
+  student61:
+    image: student-linux-env
+    container_name: student61
+    ports:
+      - "30061:7681"
+    volumes:
+      - ./volume/share:/home/student/share:ro
+      - ./volume/student/61:/home/student/61
+    depends_on:
+      - student61-mysql
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: 512M
+
+  student62-mysql:
+    image: mysql:latest
+    container_name: student62-mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=62
+      - MYSQL_DATABASE=mydatabase
+      - MYSQL_USER=student
+      - MYSQL_PASSWORD=62
+    ports:
+      - "31062:3306"
+    volumes:
+      - ./my.cnf:/etc/mysql/conf.d/my.cnf:ro
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: 512M
+
+  student62:
+    image: student-linux-env
+    container_name: student62
+    ports:
+      - "30062:7681"
+    volumes:
+      - ./volume/share:/home/student/share:ro
+      - ./volume/student/62:/home/student/62
+    depends_on:
+      - student62-mysql
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: 512M
+
+  student100-mysql:
+    image: mysql:latest
+    container_name: student100-mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=100
+      - MYSQL_DATABASE=mydatabase
+      - MYSQL_USER=student
+      - MYSQL_PASSWORD=100
+    ports:
+      - "31100:3306"
+    volumes:
+      - ./my.cnf:/etc/mysql/conf.d/my.cnf:ro
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: 512M
+
+  student100:
+    image: student-linux-env
+    container_name: student100
+    ports:
+      - "30100:7681"
+    volumes:
+      - ./volume/share:/home/student/share:ro
+      - ./volume/student/100:/home/student/100
+    depends_on:
+      - student100-mysql
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: 512M
+
+  student101-mysql:
+    image: mysql:latest
+    container_name: student101-mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=101
+      - MYSQL_DATABASE=mydatabase
+      - MYSQL_USER=student
+      - MYSQL_PASSWORD=101
+    ports:
+      - "31101:3306"
+    volumes:
+      - ./my.cnf:/etc/mysql/conf.d/my.cnf:ro
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: 512M
+
+  student101:
+    image: student-linux-env
+    container_name: student101
+    ports:
+      - "30101:7681"
+    volumes:
+      - ./volume/student/101:/home/student/101
+    depends_on:
+      - student101-mysql
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: 512M
 networks:
   webnet:

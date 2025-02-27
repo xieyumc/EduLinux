@@ -32,7 +32,7 @@ services:
         # 第一个容器：student{i}-mysql
         f.write(
 f"""  student{i}-mysql:
-    image: mysql:5.7
+    image: mysql:latest
     container_name: student{i}-mysql
     environment:
       - MYSQL_ROOT_PASSWORD={i}
@@ -47,7 +47,7 @@ f"""  student{i}-mysql:
       resources:
         limits:
           cpus: '0.1'
-          memory: 128M
+          memory: 512M
 
 """
         )
@@ -68,7 +68,7 @@ f"""  student{i}:
       resources:
         limits:
           cpus: '0.1'
-          memory: 256M
+          memory: 512M
 
 """
         )
